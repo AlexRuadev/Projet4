@@ -4,37 +4,21 @@
         <meta charset="UTF-8">
         <title>{% block title %}SucesMonBonbon{% endblock %}</title>
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-            <link href={{ asset('build/app.css') }} >
+            <link href={{ asset('build/vendors~app.css') }} rel="stylesheet" type="text/css">
+            <link href={{ asset('build/app.css') }} rel="stylesheet" type="text/css">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         {% endblock %}
     </head>
     <body>
 
-        <div class="wrapper">
-            <header>
-                <nav>
-                    <div class="menu-icon">
-                        <i class="fa fa-bars fa-2x"></i>
-                    </div>
-                    <div class="logo">logo</div>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Oui</a></li>
-                            <li><a href="#">Non</a></li>
-                            <li><a href="#">Allo</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <div class="content"><p>,jcfjszoifhjoszhffezfrueiszghruizghfrueizfgeizgcvfeizvgiezvgezvezvgygezvezvyez</p></div>
-        </div>
+        {% include('header.html.twig') %}
 
         {% block body %} {% endblock %}
-            <!-- Jquery needed -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+        {% include('footer.html.twig') %}
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src={{ asset('build/app.js') }}></script>
 
             <script>
                 //menu toggle-button
@@ -44,15 +28,6 @@
                     });
                 });
 
-                //scrolling effect
-                $(window).on("scroll", function () {
-                    if($(window).scrollTop()) {
-                        $('nav').addClass('black');
-                    }
-                    else {
-                        $('nav').removeClass('black');
-                    }
-                });
             </script>
     </body>
 </html>

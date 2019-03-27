@@ -12,9 +12,10 @@ require('../css/header.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
 require('popper.js');
-require('bootstrap/dist/css/bootstrap.css');
-require('bootstrap/dist/js/bootstrap.js');
+require('bootstrap');
 
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
 
 //console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
-
