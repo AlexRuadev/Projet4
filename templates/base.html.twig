@@ -5,58 +5,54 @@
         <title>{% block title %}SucesMonBonbon{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            <link href={{ asset('build/app.css') }} rel="stylesheet" type="text/css">
+            <link href={{ asset('build/app.css') }} >
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         {% endblock %}
     </head>
     <body>
-        {% block body %}
+
+        <div class="wrapper">
             <header>
-            <nav class="nav">
-                <div class="container">
-                    <div class="logo">
-                        <a href="#">Your Logo</a>
+                <nav>
+                    <div class="menu-icon">
+                        <i class="fa fa-bars fa-2x"></i>
                     </div>
-                    <div id="mainListDiv" class="main_list">
-                        <ul class="navlinks">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact</a></li>
+                    <div class="logo">logo</div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Oui</a></li>
+                            <li><a href="#">Non</a></li>
+                            <li><a href="#">Allo</a></li>
                         </ul>
                     </div>
-                    <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
-                </div>
-            </nav>
+                </nav>
             </header>
-        {% endblock %}
-        {% block javascripts %}
+            <div class="content"><p>,jcfjszoifhjoszhffezfrueiszghruizghfrueizfgeizgcvfeizvgiezvgezvezvgygezvezvyez</p></div>
+        </div>
+
+        {% block body %} {% endblock %}
             <!-- Jquery needed -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            <script src="js/scripts.js"></script>
 
             <!-- Function used to shrink nav bar removing paddings and adding black background -->
             <script>
-                $(window).scroll(function() {
-                    if ($(document).scrollTop() > 50) {
-                        $('.nav').addClass('affix');
-                        console.log("OK");
-                    } else {
-                        $('.nav').removeClass('affix');
+                //menu toggle-button
+                $(document).ready(function(){
+                    $(".menu-icon").on("click", function () {
+                        $("nav ul").toggleClass("showing");
+                    });
+                });
+
+                //scrolling effect
+                $(window).on("scroll", function () {
+                    if($(window).scrollTop()) {
+                        $('nav').addClass('black');
+                    }
+                    else {
+                        $('nav').removeClass('black');
                     }
                 });
-
-                $('.navTrigger').click(function () {
-                    $(this).toggleClass('active');
-                    console.log("Clicked menu");
-                    $("#mainListDiv").toggleClass("show_list");
-                    $("#mainListDiv").fadeIn();
-
-                });
             </script>
-        {% endblock %}
     </body>
 </html>
