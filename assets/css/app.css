@@ -6,14 +6,13 @@ body {
 	background-color: #EEE
 }
 
-.btn-success {
-	background-color: inherit;
+.bouton {
+	border: 1px solid #4f5d75;
 	color: black;
-	border-color: #4f5d75;
 	transition: 0.5s;
 }
 
-.btn-success:hover {
+.bouton:hover {
 	background-color: #EF8354;
 	border-color: #EF8354;
 }
@@ -59,7 +58,7 @@ body {
 *********************************************/
 
 footer {
-	background-color: rgba(79,93,117,1);
+	background-color: rgba(79, 93, 117, 1);
 }
 
 footer a {

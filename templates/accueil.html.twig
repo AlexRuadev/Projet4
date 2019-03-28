@@ -1,6 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_landing.html.twig' %}
 
 {% set nomProjet = 'SucesMonBonbon' %}
+
+{% block elementlanding %}
+    <div class="title">
+        <h1>
+            {{ nomProjet }}
+        </h1>
+        <h2>Sous-titre</h2>
+    </div>
+{% endblock %}
 
 {% block body %}
     <div class="content">
@@ -19,7 +28,7 @@
                             </p>
 
                             <div class="text-center">
-                                <a href="#" class="btn btn-success button">M'inscrire</a>
+                                <a href="#" class="btn bouton button">M'inscrire</a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +57,7 @@
                                 ad squid.</p>
 
                             <div class="text-center">
-                                <a href="#" class="btn btn-success button">M'inscrire</a>
+                                <a href="#" class="btn bouton button">M'inscrire</a>
                             </div>
                         </div>
                     </div>
