@@ -3,17 +3,89 @@
 @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 body {
-	background-color: rgba(241, 203, 255, 0.3);
+	background-color: #EEE
 }
+
+.btn-success {
+	background-color: inherit;
+	color: black;
+	border-color: #4f5d75;
+	transition: 0.5s;
+}
+
+.btn-success:hover {
+	background-color: #EF8354;
+	border-color: #EF8354;
+}
+
+/*********************************************
+//				LANDING PAGE
+*********************************************/
 
 .image1 {
 	background: url('../img/image1_accueil.jpg') center no-repeat;
 	-webkit-background-size: cover;
-	background-size: 80%;
+	background-size: 90%;
 }
 
 .image2 {
 	background: url('../img/image2_accueil.jpg') center no-repeat;
 	-webkit-background-size: cover;
-	background-size: 80%;
+	background-size: 90%;
+}
+
+.content {
+	width: 90%;
+	margin: 4em auto;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.content-title {
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.content-text {
+	text-align: justify;
+}
+
+.content1-3 {
+	margin-bottom: 100px;
+}
+
+/*********************************************
+//				FOOTER
+*********************************************/
+
+footer {
+	background-color: rgba(79,93,117,1);
+}
+
+footer a {
+	text-decoration: none;
+	color: white;
+	font-size: 0.8em;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: #EF8354;
+}
+
+footer h5 {
+	margin-bottom: 20px;
+}
+
+.wrap {
+	width: 90%;
+	margin: 4em auto;
+}
+
+/*********************************************
+//				DIVERS
+*********************************************/
+
+.underline {
+	text-decoration: underline;
 }

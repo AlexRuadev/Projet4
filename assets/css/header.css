@@ -7,26 +7,29 @@ html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	font-family: 'Poppins', sans-serif;
 }
 
 header {
 	width: 100%;
 	height: 300px;
-	background: url("../img/swing.jpg") no-repeat 50% 50%;
+	background: linear-gradient(to right bottom, rgba(45, 49, 66, 0.8), rgba(79, 93, 117, 0.2)), url("../img/fond.jpg")  no-repeat 50% 50%;
 	background-size: cover;
 }
 
 header .title {
 	text-align: center;
-	padding-top: 200px;
+	padding-top: 155px;
+	color: #FFFFFF;
+	filter: blur(1px);
 }
 
-.content {
-	width: 90%;
-	margin: 4em auto;
-	font-size: 20px;
-	line-height: 30px;
-	text-align: justify;
+header .title h1 {
+	font-size: 2em;
+}
+
+header .title h2 {
+	font-size: 1.5em;
 }
 
 .logo {
@@ -41,6 +44,9 @@ nav {
 	position: fixed;
 	width : 100%;
 	z-index: 10;
+	-webkit-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
+	box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
 }
 
 nav ul {
@@ -49,9 +55,8 @@ nav ul {
 	overflow: hidden;
 	color: black;
 	padding: 0;
-	text-align: center;
+	text-align: right;
 	margin: 0;
-	transition: 1s;
 }
 
 nav ul li {
@@ -69,8 +74,8 @@ nav ul li a:hover {
 	text-decoration: none;
 	color: #EF8354;
 	font-size: 20px;
-	transition: 0.5s;
 	border-bottom: 1px solid #EF8354;
+	transition: 0.2s;
 }
 
 .menu-icon {
@@ -96,6 +101,7 @@ nav ul li a:hover {
 	nav ul {
 		max-height: 0;
 		background: #7687a3;
+		transition: 0.4s;
 	}
 
 	.showing {
@@ -113,7 +119,7 @@ nav ul li a:hover {
 	}
 
 	nav ul li a {
-		padding: 20px 150px;
+		padding: 20px 30%;
 	}
 
 	nav ul li a:hover {
