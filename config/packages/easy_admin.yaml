@@ -1,5 +1,4 @@
-easy_admin:
-   entities:
-       #List the entity class name you want to manage
-       - App\Entity\Parents
-       - App\Entity\Enfants
+imports:
+  # Depuis Symfony 2.8
+  - { resource: admin/ }
+
