@@ -1,0 +1,10 @@
+easy_admin:
+  entities:
+    Enfants:
+      class: App\Entity\Enfants
+      label: 'Enfants'
+      form:
+        fields:
+          - { property: 'enfants_parents'}
+          - { property: 'enfants_nom', icon: 'user' }
+          - { property: 'enfants_prenom', css_class: 'input-large' }

@@ -1,7 +1,12 @@
 easy_admin:
   entities:
-    Admin:
+    Parents:
       class: App\Entity\Parents
       label: 'Parents'
       list:
           title: 'test'
+          fields:
+            - 'id'
+            - { property: 'parents_date_creation', type: 'datetime' }
+            - { property: 'parents_mail', type: 'string' }
+            - { property: 'parents_status', type: 'toggle' }
