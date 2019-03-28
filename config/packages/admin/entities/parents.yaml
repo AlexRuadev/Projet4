@@ -1,0 +1,7 @@
+easy_admin:
+  entities:
+    Admin:
+      class: App\Entity\Parents
+      label: 'Parents'
+      list:
+          title: 'test'
