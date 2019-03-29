@@ -1,0 +1,4 @@
+imports:
+  # Depuis Symfony 2.8
+  - { resource: admin/ }
+
