@@ -1,9 +1,90 @@
-/*
-bleu: rgb(201, 201, 255); #C9C9FF; hover #7575FF;
-mauve: rgb(241, 203, 255); #F1CBFF; hover #E497FF;
-*/
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 body {
-    background-color: white;
+	background-color: #EEE
+}
 
+.bouton {
+	border: 1px solid #4f5d75;
+	color: black;
+	transition: 0.5s;
+}
+
+.bouton:hover {
+	background-color: #EF8354;
+	border-color: #EF8354;
+}
+
+/*********************************************
+//				LANDING PAGE
+*********************************************/
+
+.image1 {
+	background: url('../img/image1_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+	background-size: 90%;
+}
+
+.image2 {
+	background: url('../img/image2_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+	background-size: 90%;
+}
+
+.content {
+	width: 90%;
+	margin: 4em auto;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.content-title {
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.content-text {
+	text-align: justify;
+}
+
+.content1-3 {
+	margin-bottom: 100px;
+}
+
+/*********************************************
+//				FOOTER
+*********************************************/
+
+footer {
+	background-color: rgba(79, 93, 117, 1);
+}
+
+footer a {
+	text-decoration: none;
+	color: white;
+	font-size: 0.8em;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: #EF8354;
+}
+
+footer h5 {
+	margin-bottom: 20px;
+}
+
+.wrap {
+	width: 90%;
+	margin: 4em auto;
+}
+
+/*********************************************
+//				DIVERS
+*********************************************/
+
+.underline {
+	text-decoration: underline;
 }
