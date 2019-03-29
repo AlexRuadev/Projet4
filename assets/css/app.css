@@ -3,7 +3,7 @@
 @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 body {
-	background-color: #EEE
+	background-color: #EEE;
 }
 
 .bouton {
@@ -13,8 +13,9 @@ body {
 }
 
 .bouton:hover {
-	background-color: #EF8354;
-	border-color: #EF8354;
+	background: rgba(255, 131, 96,1);
+	border-color: rgba(255, 131, 96,1);
+	color: #FFF;
 }
 
 /*********************************************
@@ -54,11 +55,29 @@ body {
 }
 
 /*********************************************
+//				GLOBAL
+*********************************************/
+
+.case-pro {
+	padding: 20px;
+	background-color: #AAA;
+	margin: 20px 0;
+	height: 200px;
+}
+
+.images {
+	width: 100%;
+	height: 100%;
+	background: url('../img/image1_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+}
+
+/*********************************************
 //				FOOTER
 *********************************************/
 
 footer {
-	background-color: rgba(79, 93, 117, 1);
+	background: rgba(255, 131, 96,1);
 }
 
 footer a {
@@ -69,7 +88,7 @@ footer a {
 
 footer a:hover {
 	text-decoration: none;
-	color: #EF8354;
+	color: #CCC;
 }
 
 footer h5 {
