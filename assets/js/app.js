@@ -18,10 +18,4 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
 
-<<<<<<< HEAD
-
 // console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
-
-=======
-//console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
->>>>>>> f9f4a8f929e5799a08b8ad6677c24b1641a6d838

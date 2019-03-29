@@ -1,54 +1,5 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}SucesMonBonbon{% endblock %}</title>
-        {% block stylesheets %}
-
-            <link href={{ asset('build/app.css') }} rel="stylesheet" type="text/css">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-
-        {% endblock %}
-    </head>
-    <body>
-=======
 {% include('header.html.twig') %}
->>>>>>> f9f4a8f929e5799a08b8ad6677c24b1641a6d838
 
 {% block body %} {% endblock %}
 
-<<<<<<< HEAD
-        {% block body %} {% endblock %}
-
-        {#{% include('footer.html.twig') %}#}
-
-        <!-- Jquery needed -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src={{ asset('build/app.js') }}></script>
-
-            <script>
-                //menu toggle-button
-                $(document).ready(function(){
-                    $(".menu-icon").on("click", function () {
-                        $("nav ul").toggleClass("showing");
-                    });
-                });
-
-                //scrolling effect
-                $(window).on("scroll", function () {
-                    if($(window).scrollTop()) {
-                        $('nav').addClass('black');
-                    }
-                    else {
-                        $('nav').removeClass('black');
-                    }
-                });
-            </script>
-
-
-    </body>
-</html>
-=======
 {% include('footer.html.twig') %}
->>>>>>> f9f4a8f929e5799a08b8ad6677c24b1641a6d838
