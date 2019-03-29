@@ -127,6 +127,27 @@ a:hover {
 }
 
 /*********************************************
+//				PROFIL PARENTS
+*********************************************/
+
+.image-profil {
+	height: 170px;
+	width: 170px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+}
+
+.details-profils {
+    margin-top: 7%;
+}
+
+.alignement-gauche {
+	text-align: left;
+}
+
+
+
+/*********************************************
 //				FOOTER
 *********************************************/
 
