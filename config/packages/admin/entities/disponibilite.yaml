@@ -1,4 +1,0 @@
-easy_admin:
-  entities:
-    Disponibilite:
-      class: App\Entity\Disponibilite

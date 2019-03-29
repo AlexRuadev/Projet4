@@ -10,16 +10,12 @@ easy_admin:
           children:
             - { entity: 'Parents', icon: 'user' }
             - { entity: 'Entreprises', icon: 'user' }
-            - { entity: 'Avis', icon: 'comments'}
         - label: 'Enfants'
           icon: 'child'
           children:
             - { entity: 'Enfants', icon: 'child' }
             - { entity: 'Medical', icon: 'plus-square' }
             - { entity: 'Bracelet', icon: 'feed' }
-        - label: 'Planning'
-          icon: 'calendar '
-          children:
-            - { entity: 'Disponibilite', icon: 'calendar-o'}
-            - { entity: 'Reservations', icon: 'bookmark'}
+        - { entity: 'Reservations', icon: 'bookmark'}
+        - { entity: 'Avis', icon: 'comments'}
 

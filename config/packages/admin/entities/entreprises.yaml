@@ -1,14 +1,24 @@
 easy_admin:
   entities:
     Entreprises:
+      disabled_actions: ['new']
       class: App\Entity\Entreprises
       label: 'Entreprises'
       list:
         title: 'Entreprises'
         fields:
           - 'id'
-          - { property: 'entreprises_pseudo', type: 'string' }
           - { property: 'entreprises_mail', type: 'email' }
           - { property: 'entreprises_nom', type: 'string' }
           - { property: 'entreprises_role', type: 'simple_array' }
+          - { property: 'entreprises_telephone', type: 'string' }
+          - { property: 'entreprises_siret', type: 'integer' }
+          - { property: 'entreprises_note', type: 'float' }
+          - { property: 'entreprises_status', type: 'toggle' }
+          - { property: 'entreprises_date_creation', type: 'datetime' }
+          - { property: 'entreprises_date_modif', type: 'datetime' }
+      edit:
+        title: 'Modification Entreprises'
+        fields:
+          - { property: 'entreprises_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
 

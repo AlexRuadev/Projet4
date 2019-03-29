@@ -2,3 +2,14 @@ easy_admin:
   entities:
     Avis:
       class: App\Entity\Avis
+      label: 'Avis'
+      list:
+        title: 'Avis'
+        fields:
+            - 'id'
+            - { property: 'Avis_note', type: 'integer' }
+            - { property: 'Avis_commentaires', type: 'string' }
+            - { property: 'Avis_signalement', type: 'integer' }
+            - { property: 'Avis_status', type: 'toggle' }
+            - { property: 'Avis_date_creation', type: 'datetime' }
+            - { property: 'Avis_date_modif', type: 'datetime' }

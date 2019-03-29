@@ -1,7 +1,7 @@
 easy_admin:
   entities:
     Parents:
-      disabled_actions: ['new', 'edit']
+      disabled_actions: ['new']
       class: App\Entity\Parents
       label: 'Parents'
       list:
@@ -15,3 +15,9 @@ easy_admin:
             - { property: 'parents_date_creation', type: 'datetime' }
             - { property: 'parents_date_modif', type: 'datetime' }
             - { property: 'Parents_enfants', type: 'simple_array' }
+      edit:
+        title: 'Modification Parents'
+        fields:
+          - { property: 'parents_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+
+
