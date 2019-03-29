@@ -1,30 +1,88 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="content">
+
+    <div class="case case-search">
         <div class="container">
-            <div class="row case-pro">
-                <div class="col-md-3">
-                    <div class="images">
-
+            <form action="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label>Région</label>
+                            <select class="form-control">
+                                <option>76 - Seine-Maritime</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Code postal</label>
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="col">
+                            <label>Trier par</label>
+                            <select class="form-control">
+                                <option>Meilleures notes</option>
+                                <option>Nombre de disponibilités</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <br>
+                            <button class="btn bouton search-bouton">Rechercher</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <h3 class="title">Titre</h3>
-                    <p>Code postal: 76000</p>
-                    <p>Capacité d'accueil</p>
-                    <p>Rôle (établissement, indépendant,...)</p>
-                </div>
-                <div class="col-md-1">
-                    <div class="dispo">
+            </form>
+        </div>
+    </div>
+    <div class="content">
 
+        <div class="container">
+
+            <a href="">
+                <div class="row case">
+                    <div class="col-md-3">
+                        <div class="images">
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="title">Titre</h3>
+                        <p>Code postal: 76000</p>
+                        <p>Capacité d'accueil</p>
+                        <p>Rôle (établissement, indépendant,...)</p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <div class="col">
+                                <div class="dispo"></div>
+                            </div>
+                            <div class="col">
+                                <div class="note">5/5</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="row case-pro">
-                <p>à faire en back</p>
-            </div>
+            <a>
+                <div class="row case">
+                    <div class="col-md-3">
+                        <div class="images">
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="title">Titre</h3>
+                        <p>Code postal: 76000</p>
+                        <p>Capacité d'accueil</p>
+                        <p>Rôle (établissement, indépendant,...)</p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="dispo">
+
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 {% endblock %}
