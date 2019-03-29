@@ -3,7 +3,11 @@
 @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 body {
-	background-color: #EEE
+	background-color: #EEE;
+}
+
+a:hover {
+	text-decoration: none;
 }
 
 .bouton {
@@ -13,8 +17,9 @@ body {
 }
 
 .bouton:hover {
-	background-color: #EF8354;
-	border-color: #EF8354;
+	background: rgba(255, 131, 96,1);
+	border-color: rgba(255, 131, 96,1);
+	color: #FFF;
 }
 
 /*********************************************
@@ -54,11 +59,80 @@ body {
 }
 
 /*********************************************
+//				GLOBAL
+*********************************************/
+
+.case {
+	color: #000;
+	padding: 20px;
+	background-color: #dddddd;
+	margin: 20px 0;
+	height: 5%;
+	text-align: center;
+	border-radius: 5px 5px;
+}
+
+.case h3 {
+	font-size: 1.1em;
+}
+
+.case p {
+	font-size: 0.8em;
+}
+
+.case-search {
+	margin-top: 70px;
+}
+
+.case-search .col input, .case-search .col select {
+	font-size: 0.8em;
+}
+
+.case-search label {
+	font-size: 0.8em;
+}
+
+.case-search .row:first-child {
+
+}
+
+.images {
+	width: 100%;
+	height: 100%;
+	background: url('../img/image1_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+}
+
+.search-bouton {
+	padding: 5px 10px;
+	margin-top: 4px;
+}
+
+.dispo {
+	transform: translateX(50%);
+	background-color: greenyellow;
+	height: 25px;
+	width: 25px;
+	border: 1px solid greenyellow;
+	border-radius: 50%;
+}
+
+.nondispo {
+	transform: translateX(50%);
+	background-color: orangered;
+	height: 25px;
+	width: 25px;
+	border: 1px solid orangered;
+	border-radius: 50%;
+}
+
+/*********************************************
 //				FOOTER
 *********************************************/
 
 footer {
-	background-color: rgba(79, 93, 117, 1);
+	width: 100%;
+	background: rgba(255, 131, 96,1);
 }
 
 footer a {
@@ -69,7 +143,7 @@ footer a {
 
 footer a:hover {
 	text-decoration: none;
-	color: #EF8354;
+	color: #CCC;
 }
 
 footer h5 {
