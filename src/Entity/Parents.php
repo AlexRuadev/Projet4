@@ -5,23 +5,26 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParentsRepository")
+ * @UniqueEntity(fields={"Parents_pseudo"}, message="There is already an account with this Parents_pseudo")
  */
-class Parents
+abstract class Parents implements UserInterface
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $Parents_pseudo;
+    protected $Parents_pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
