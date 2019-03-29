@@ -1,49 +1,68 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_landing.html.twig' %}
+
+{% set nomProjet = 'SucesMonBonbon' %}
+
+{% block elementlanding %}
+    <div class="title">
+        <h1>
+            {{ nomProjet }}
+        </h1>
+        <h2>Sous-titre</h2>
+    </div>
+{% endblock %}
 
 {% block body %}
+    <div class="content">
+        <section id="content1-3" class="content1-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="about-content">
+                            <h1 class="content-title">Vous êtes un particulier ?</h1>
+                            <p class="content-text">{{ nomProjet }} vous propose un service de mise en relation avec les
+                                crèches et les assistantes maternelles.
+                                En effet, après la création de votre compte, vous pourrez rechercher des professionnels
+                                en fonction de vos besoins.
+                                Fini les longues listes d'attente, réservez-vous même et dès maintenant en fonction des
+                                disponibilités.
+                            </p>
 
-    {#<section id="content1-3" class="content1-3">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<div class="col-md-5">#}
-                    {#<div class="about-content">#}
-                        {#<h1 class="content-title">Welcome To Eden Builder</h1>#}
-                        {#<p>Lorem ipsum dolor sit amet reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Haccusamus terry richardson ad squid. pwolf moon officia aute, non cupidatat skateboard. Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt cusamus terry richardson ad squid.</p>#}
+                            <div class="text-center">
+                                <a href="#" class="btn bouton button">M'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 image1">
 
-                        {#<div class="text-left">#}
-                            {#<a href="#" class="btn btn-info button">Get Started</a>#}
-                            {#<a href="#" class="btn btn-success button">Download</a>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-                {#<div class="col-md-7">#}
-                    {#<div><img class="img-responsive" src="images/about-us.png" alt="#"></div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</section>#}
-
-
-    {#<section id="content1-4" class="content1-4">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<div class="col-md-7">#}
-                    {#<div><img class="img-responsive" src="" alt="#"></div>#}
-                {#</div>#}
-                {#<div class="col-md-5">#}
-                    {#<div class="about-content">#}
-                        {#<h1 class="content-title">Welcome To Eden Builder</h1>#}
-                        {#<p>Lorem ipsum dolor sit amet reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Haccusamus terry richardson ad squid. pwolf moon officia aute, non cupidatat skateboard. Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt cusamus terry richardson ad squid.</p>#}
-
-                        {#<div class="text-left">#}
-                            {#<a href="#" class="btn btn-info button">Get Started</a>#}
-                            {#<a href="#" class="btn btn-success button">Download</a>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</section>#}
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
+        <section id="content1-4" class="content1-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 image2">
+                        <div></div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="about-content">
+                            <h1 class="content-title">Vous êtes un professionnel ?</h1>
+                            <p class="content-text">Lorem ipsum dolor sit amet reprehenderit, enim eiusmod high life
+                                accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Haccusamus terry richardson ad
+                                squid. pwolf moon officia aute, non cupidatat skateboard. Wolf moon officia aute, non
+                                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt cusamus terry richardson
+                                ad squid.</p>
+
+                            <div class="text-center">
+                                <a href="#" class="btn bouton button">M'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 {% endblock %}

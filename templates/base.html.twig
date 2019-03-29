@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,26 +12,7 @@
         {% endblock %}
     </head>
     <body>
-
-        <div class="wrapper">
-            <header>
-                <nav>
-                    <div class="menu-icon">
-                        <i class="fa fa-bars fa-2x"></i>
-                    </div>
-                    <div class="logo">logo</div>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Oui</a></li>
-                            <li><a href="#">Non</a></li>
-                            <li><a href="#">Allo</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <div class="content"><p>,jcfjszoifhjoszhffezfrueiszghruizghfrueizfgeizgcvfeizvgiezvgezvezvgygezvezvyez</p></div>
-        </div>
+{% include('header.html.twig') %}
 
         {% block body %} {% endblock %}
 
@@ -62,3 +44,6 @@
 
     </body>
 </html>
+=======
+{% include('footer.html.twig') %}
+>>>>>>> f9f4a8f929e5799a08b8ad6677c24b1641a6d838

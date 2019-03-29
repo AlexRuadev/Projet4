@@ -1,14 +1,36 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+
+body {
+	background-color: #EEE
 }
 
-header {
-    width: 100%;
-    height: 100vh;
-    background: url("../img/swing.jpg") no-repeat 50% 50%;
-	background-size: cover;
+.bouton {
+	border: 1px solid #4f5d75;
+	color: black;
+	transition: 0.5s;
+}
+
+.bouton:hover {
+	background-color: #EF8354;
+	border-color: #EF8354;
+}
+
+/*********************************************
+//				LANDING PAGE
+*********************************************/
+
+.image1 {
+	background: url('../img/image1_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+	background-size: 90%;
+}
+
+.image2 {
+	background: url('../img/image2_accueil.jpg') center no-repeat;
+	-webkit-background-size: cover;
+	background-size: 90%;
 }
 
 .content {
@@ -16,92 +38,53 @@ header {
 	margin: 4em auto;
 	font-size: 20px;
 	line-height: 30px;
+}
+
+.content-title {
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.content-text {
 	text-align: justify;
 }
 
-.logo {
-	position: fixed;
-	float: left;
-	margin : 16px 36px;
-	color: black;
-	font-size: 24px;
+.content1-3 {
+	margin-bottom: 100px;
 }
 
-nav {
-	position: fixed;
-	width : 100%;
+/*********************************************
+//				FOOTER
+*********************************************/
+
+footer {
+	background-color: rgba(79, 93, 117, 1);
 }
 
-nav ul {
-	list-style: none;
-	background: rgba(0,0,0,0);
-	overflow: hidden;
-	color: black;
-	padding: 0;
-	text-align: center;
-	margin: 0;
-	transition: 1s;
-}
-
-nav.black ul {
-	background: black;
-}
-
-nav ul li {
-	display: inline-block;
-	padding: 20px;
-}
-
-nav ul li a {
+footer a {
 	text-decoration: none;
-	color: black;
-	font-size: 20px;
+	color: white;
+	font-size: 0.8em;
 }
 
-.menu-icon {
-	width: 100%;
-	background: rgba(0,0,0,0);
-	text-align: right;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 15px 24px;
-	cursor: pointer;
-	color: black;
-	display: none;
+footer a:hover {
+	text-decoration: none;
+	color: #EF8354;
 }
 
-@media(max-width: 580px) {
-	.logo {
-		position: fixed;
-		top: 0;
-		margin-top: 16px;
-	}
-
-	nav ul {
-		max-height: 0;
-		background: #000;
-	}
-	
-	nav.black ul {
-		background: #000;
-	}
-	
-	.showing {
-		max-height: 20em;
-	}
-	
-	nav ul li {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		width: 100%;
-		padding: 24px 0;
-		text-align: center;
-	}
-
-	.menu-icon {
-		display: block;
-	}
+footer h5 {
+	margin-bottom: 20px;
 }
 
+.wrap {
+	width: 90%;
+	margin: 4em auto;
+}
+
+/*********************************************
+//				DIVERS
+*********************************************/
+
+.underline {
+	text-decoration: underline;
+}

@@ -1,0 +1,144 @@
+/*
+bleu: rgb(201, 201, 255); #C9C9FF; hover #7575FF;
+mauve: rgb(241, 203, 255); #F1CBFF; hover #E497FF;
+*/
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
+}
+
+.header_landing {
+	width: 100%;
+	height: 300px;
+	background: linear-gradient(to right bottom, rgba(45, 49, 66, 0.8), rgba(79, 93, 117, 0.2)), url("../img/fond.jpg")  no-repeat 50% 50%;
+	background-size: cover;
+}
+
+.header_classico {
+	width: 100%;
+}
+
+header .title {
+	text-align: center;
+	padding-top: 155px;
+	color: #FFFFFF;
+}
+
+header .title h1 {
+	font-size: 2em;
+}
+
+header .title h2 {
+	font-size: 1.5em;
+}
+
+.logo {
+	position: fixed;
+	float: left;
+	margin : 16px 36px;
+	color: black;
+	font-size: 24px;
+}
+
+nav {
+	position: fixed;
+	width : 100%;
+	z-index: 10;
+	-webkit-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
+	box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
+}
+
+nav ul {
+	list-style: none;
+	background: rgba(79,93,117,1);
+	overflow: hidden;
+	color: black;
+	padding: 0;
+	text-align: right;
+	margin: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 20px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+
+nav ul li a:hover {
+	text-decoration: none;
+	color: #EF8354;
+	font-size: 20px;
+	border-bottom: 1px solid #EF8354;
+	transition: 0.2s;
+}
+
+.menu-icon {
+	width: 100%;
+	background: rgba(79,93,117,1);
+	text-align: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 15px 24px;
+	cursor: pointer;
+	color: black;
+	display: none;
+}
+
+@media(max-width: 580px) {
+	.logo {
+		position: fixed;
+		top: 0;
+		margin-top: 16px;
+	}
+
+	nav ul {
+		max-height: 0;
+		background: #7687a3;
+		transition: 0.4s;
+	}
+
+	.showing {
+		max-height: 20em;
+	}
+
+	nav ul li {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 24px 0;
+		text-align: center;
+		border-bottom: 1px solid transparent;
+	}
+
+	nav ul li a {
+		padding: 20px 30%;
+	}
+
+	nav ul li a:hover {
+		border-bottom: 0;
+	}
+
+	nav ul li:hover {
+		border-bottom: 1px solid #EF8354;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		-ms-transition: 0.5s;
+		-o-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.menu-icon {
+		display: block;
+	}
+}
