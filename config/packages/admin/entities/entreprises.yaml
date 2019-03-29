@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    Entreprises:
+      class: App\Entity\Entreprises
+      label: 'Entreprises'
+      list:
+        title: 'Entreprises'
+        fields:
+          - 'id'
+          - { property: 'entreprises_pseudo', type: 'string' }
+          - { property: 'entreprises_mail', type: 'email' }
+          - { property: 'entreprises_nom', type: 'string' }
+          - { property: 'entreprises_role', type: 'simple_array' }
+

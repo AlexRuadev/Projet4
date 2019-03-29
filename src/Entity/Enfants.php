@@ -201,4 +201,10 @@ class Enfants
 
         return $this;
     }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->Enfants_nom;
+    }
 }

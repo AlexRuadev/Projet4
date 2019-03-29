@@ -1,9 +1,25 @@
 easy_admin:
+  formats:
+    date: 'd/m/Y'
+    datetime: 'd/m/Y '
   design:
       brand_color: '#1ABC9C'
       menu:
         - label: 'Utilisateurs'
+          icon: 'users'
           children:
             - { entity: 'Parents', icon: 'user' }
-            - { entity: 'Enfants', icon: 'user' }
+            - { entity: 'Entreprises', icon: 'user' }
+            - { entity: 'Avis', icon: 'comments'}
+        - label: 'Enfants'
+          icon: 'child'
+          children:
+            - { entity: 'Enfants', icon: 'child' }
+            - { entity: 'Medical', icon: 'plus-square' }
+            - { entity: 'Bracelet', icon: 'feed' }
+        - label: 'Planning'
+          icon: 'calendar '
+          children:
+            - { entity: 'Disponibilite', icon: 'calendar-o'}
+            - { entity: 'Reservations', icon: 'bookmark'}
 

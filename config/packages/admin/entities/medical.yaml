@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    Medical:
+      class: App\Entity\Medical

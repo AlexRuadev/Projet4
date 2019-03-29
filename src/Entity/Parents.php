@@ -376,4 +376,9 @@ class Parents
 
         return $this;
     }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->Parents_mail;
+    }
 }

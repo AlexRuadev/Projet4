@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    Bracelet:
+      class: App\Entity\Bracelet
