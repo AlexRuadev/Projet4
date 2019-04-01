@@ -147,9 +147,9 @@ a:hover {
 }
 
 .image-entreprise {
-	height: 100%;
-	width: 100%;
-}
+	 height: 100%;
+	 width: 50%;
+ }
 
 .alignement-gauche {
 	text-align: left;
@@ -168,6 +168,10 @@ a:hover {
 	font-size: 1.15em;
 }
 
+.case-entreprise p span {
+	font-size: 1.15em;
+}
+
 @media only screen and (max-width: 768px) {
 	.case-parent {
 		font-size: 0.6em;
@@ -180,6 +184,15 @@ a:hover {
 
 	.alignement-gauche {
 		text-align: inherit;
+	}
+
+	.image-entreprise {
+		width: 220px;
+		height: 350px;
+	}
+
+	.desc-entreprise {
+		width: 220px;
 	}
 }
 
