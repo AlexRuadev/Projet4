@@ -108,6 +108,7 @@ class Parents
         $this->Parents_enfants = new ArrayCollection();
         $this->Parents_reservations = new ArrayCollection();
         $this->Parents_Avis = new ArrayCollection();
+        $this->Parents_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int

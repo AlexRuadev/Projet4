@@ -46,7 +46,6 @@ class Bracelet
     public function __construct()
     {
         $this->Bracelet_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
-        $this->Bracelet_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -85,7 +84,7 @@ class Bracelet
 
     public function setBraceletDateModif(?\DateTimeInterface $Bracelet_date_modif): self
     {
-        $this->Bracelet_date_modif = $Bracelet_date_modif;
+        $this->Bracelet_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }
