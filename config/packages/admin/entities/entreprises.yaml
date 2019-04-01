@@ -8,15 +8,16 @@ easy_admin:
         title: 'Entreprises'
         fields:
           - 'id'
-          - { property: 'entreprises_mail', type: 'email' }
-          - { property: 'entreprises_nom', type: 'string' }
-          - { property: 'entreprises_role', type: 'simple_array' }
-          - { property: 'entreprises_telephone', type: 'string' }
-          - { property: 'entreprises_siret', type: 'integer' }
-          - { property: 'entreprises_note', type: 'float' }
-          - { property: 'entreprises_status', type: 'toggle' }
-          - { property: 'entreprises_date_creation', type: 'datetime' }
-          - { property: 'entreprises_date_modif', type: 'datetime' }
+          - { property: 'entreprises_mail', type: 'email', label: 'Email' }
+          - { property: 'entreprises_nom', type: 'string', label: 'Nom' }
+          - { property: 'entreprises_role', type: 'simple_array', label: 'Rôle' }
+          - { property: 'entreprises_telephone', type: 'string', label: 'Téléphone' }
+          - { property: 'entreprises_siret', type: 'integer', label: 'Numero de Siret' }
+          - { property: 'entreprises_note', type: 'float', label: 'Note' }
+          - { property: 'entreprises_status', type: 'toggle', label: 'Status' }
+          - { property: 'entreprises_date_creation', type: 'datetime', label: 'Date de création' }
+          - { property: 'entreprises_date_modif', type: 'datetime', label: 'Date de modification' }
+          - { property: 'Entreprises_Bracelet', type: 'simple_array', label: 'Bracelet ID' }
       edit:
         title: 'Modification Entreprises'
         fields:

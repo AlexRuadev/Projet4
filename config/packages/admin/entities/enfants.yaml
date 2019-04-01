@@ -1,5 +1,27 @@
 easy_admin:
   entities:
     Enfants:
+      disabled_actions: ['new']
       class: App\Entity\Enfants
       label: 'Enfants'
+      list:
+        title: 'Enfants'
+        fields:
+          - 'id'
+          - { property: 'enfants_parents', type: 'string', label: 'Parent'}
+          - { property: 'enfants_nom', type: 'string', label: 'Nom'}
+          - { property: 'enfants_prenom', type: 'string', label: 'Prenom'}
+          - { property: 'enfants_date_de_naissance', type: 'date', label: 'Date de naissance'}
+          - { property: 'enfants_information', type: 'text', label: 'Information'}
+          - { property: 'enfants_status', type: 'toggle', label: 'Status'}
+          - { property: 'enfants_date_creation', type: 'datetime', label: 'Date de création'}
+          - { property: 'enfants_date_modif', type: 'datetime', label: 'Date de modification'}
+          - { property: 'Enfants_medical', type: 'string', label: 'Medical ID'}
+          - { property: 'Enfants_bracelet', type: 'string', label: 'Bracelet ID'}
+      edit:
+        title: 'Modification Enfants'
+        fields:
+          - { property: 'enfants_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+
+
+

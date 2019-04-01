@@ -1,4 +1,18 @@
 easy_admin:
   entities:
     Medical:
+      disabled_actions: ['new']
       class: App\Entity\Medical
+      label: 'Medical'
+      list:
+        title: 'Medical'
+        fields:
+          - 'id'
+          - { property: 'Medical_enfants', type: 'string', label: 'Enfants ID'}
+          - { property: 'medical_status', type: 'toggle', label: 'Status'}
+          - { property: 'medical_date_creation', type: 'datetime', label: 'Date de création'}
+          - { property: 'medical_date_modif', type: 'datetime', label: 'Date de modification'}
+      edit:
+        title: 'Modification Medical'
+        fields:
+          - { property: 'medical_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}

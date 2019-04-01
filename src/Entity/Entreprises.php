@@ -494,4 +494,8 @@ class Entreprises
 
         return $this;
     }
+    public function __toString()
+    {
+        return  $this->Entreprises_nom . ' ['.strval($this->id) . '] ';
+    }
 }

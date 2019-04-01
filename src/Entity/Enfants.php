@@ -204,7 +204,6 @@ class Enfants
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
-        return $this->Enfants_nom;
+        return  $this->Enfants_nom. ' ['.strval($this->id) . '] ';
     }
 }

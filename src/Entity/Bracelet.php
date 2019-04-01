@@ -43,6 +43,12 @@ class Bracelet
      */
     private $Bracelet_entreprises;
 
+    public function __construct()
+    {
+        $this->Bracelet_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->Bracelet_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,4 +113,9 @@ class Bracelet
 
         return $this;
     }
+    public function __toString()
+    {
+        return  strval($this->id);
+    }
+
 }

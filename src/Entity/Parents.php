@@ -378,7 +378,6 @@ class Parents
     }
     public function __toString()
     {
-        // TODO: Implement __toString() method.
-        return $this->Parents_mail;
+        return $this->Parents_pseudo . ' ['.strval($this->id) . '] ';
     }
 }

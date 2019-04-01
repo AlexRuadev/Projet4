@@ -2,3 +2,10 @@ easy_admin:
   entities:
     Reservations:
       class: App\Entity\Reservations
+      label: 'Reservations'
+      list:
+        title: 'Reservations'
+        fields:
+            - 'id'
+            - { property: 'Reservations_parents', type: 'string', label: 'Parents ID' }
+            - { property: 'Reservations_entreprises', type: 'string', label: 'Entreprises ID' }

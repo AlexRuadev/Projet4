@@ -15,7 +15,7 @@ easy_admin:
           children:
             - { entity: 'Enfants', icon: 'child' }
             - { entity: 'Medical', icon: 'plus-square' }
-            - { entity: 'Bracelet', icon: 'feed' }
+        - { entity: 'Bracelet', icon: 'feed' }
         - { entity: 'Reservations', icon: 'bookmark'}
         - { entity: 'Avis', icon: 'comments'}
 

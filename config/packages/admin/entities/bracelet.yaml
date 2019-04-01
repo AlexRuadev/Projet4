@@ -2,3 +2,23 @@ easy_admin:
   entities:
     Bracelet:
       class: App\Entity\Bracelet
+      label: 'Bracelets'
+      list:
+        title: 'Bracelets'
+        fields:
+          - 'id'
+          - { property: 'bracelet_enfants', type: 'string', label: 'Enfants ID' }
+          - { property: 'bracelet_entreprises', type: 'string', label: 'Entreprises ID' }
+          - { property: 'bracelet_status', type: 'toggle', label: 'Status' }
+          - { property: 'bracelet_date_creation', type: 'datetime', label: 'Date de création' }
+          - { property: 'bracelet_date_modif', type: 'datetime', label: 'Date de modification' }
+      edit:
+        title: 'Modification Bracelet'
+        fields:
+          - { property: 'bracelet_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+      new:
+        title: 'Nouveau Bracelet'
+        fields:
+          - { property: 'bracelet_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'Bracelet_enfants', label: 'Enfants ID' , css_class: 'form-widget'}
+          - { property: 'Bracelet_entreprises', label: 'Entreprises ID  ' , css_class: 'form-widget'}
