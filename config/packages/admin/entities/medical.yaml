@@ -16,3 +16,4 @@ easy_admin:
         title: 'Modification Medical'
         fields:
           - { property: 'medical_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'medical_date_modif', label: 'Date de modification' , type: 'date', css_class: 'form-widget'}

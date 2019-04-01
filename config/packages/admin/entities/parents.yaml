@@ -5,7 +5,7 @@ easy_admin:
       class: App\Entity\Parents
       label: 'Parents'
       list:
-          title: 'test'
+          title: 'Parents'
           fields:
             - 'id'
             - { property: 'parents_pseudo', type: 'string', label: 'Pseudo' }
@@ -19,6 +19,7 @@ easy_admin:
         title: 'Modification Parents'
         fields:
           - { property: 'parents_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'parents_date_modif', label: 'Date de modification' , type: 'date'}
 
 
 

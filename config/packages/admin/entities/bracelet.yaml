@@ -16,7 +16,7 @@ easy_admin:
         title: 'Modification Bracelet'
         fields:
           - { property: 'bracelet_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
-          - { property: 'bracelet_date_modif', label: 'Date de modification' , type: 'date'}
+          - { property: 'bracelet_date_modif', label: 'Date de modification' , type: 'date', css_class: 'form-widget'}
       new:
         title: 'Nouveau Bracelet'
         fields:

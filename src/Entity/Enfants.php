@@ -150,7 +150,7 @@ class Enfants
 
     public function setEnfantsDateModif(?\DateTimeInterface $Enfants_date_modif): self
     {
-        $this->Enfants_date_modif = $Enfants_date_modif;
+        $this->Enfants_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }

@@ -22,6 +22,7 @@ easy_admin:
         title: 'Modification Enfants'
         fields:
           - { property: 'enfants_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'enfants_date_modif', label: 'Date de modification' , type: 'date'}
 
 
 

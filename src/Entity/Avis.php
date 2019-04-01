@@ -130,7 +130,7 @@ class Avis
 
     public function setAvisDateModif(?\DateTimeInterface $Avis_date_modif): self
     {
-        $this->Avis_date_modif = $Avis_date_modif;
+        $this->Avis_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }

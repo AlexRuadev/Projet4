@@ -22,4 +22,5 @@ easy_admin:
         title: 'Modification Entreprises'
         fields:
           - { property: 'entreprises_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'entreprises_date_modif', label: 'Date de modification' , type: 'date'}
 

@@ -118,7 +118,7 @@ class Reservations
 
     public function setReservationsDateModif(?\DateTimeInterface $Reservations_date_modif): self
     {
-        $this->Reservations_date_modif = $Reservations_date_modif;
+        $this->Reservations_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }

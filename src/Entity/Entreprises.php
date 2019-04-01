@@ -397,7 +397,7 @@ class Entreprises
 
     public function setEntreprisesDateModif(\DateTimeInterface $Entreprises_date_modif): self
     {
-        $this->Entreprises_date_modif = $Entreprises_date_modif;
+        $this->Entreprises_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }

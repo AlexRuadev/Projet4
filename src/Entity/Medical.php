@@ -140,7 +140,7 @@ class Medical
 
     public function setMedicalDateModif(?\DateTimeInterface $Medical_date_modif): self
     {
-        $this->Medical_date_modif = $Medical_date_modif;
+        $this->Medical_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }
