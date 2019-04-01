@@ -7,12 +7,13 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParentsRepository")
  * @UniqueEntity(fields={"Parents_pseudo"}, message="There is already an account with this Parents_pseudo")
  */
-abstract class Parents implements UserInterface
+class Parents implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -29,88 +30,96 @@ abstract class Parents implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Parents_mail;
+    protected $Parents_mail;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Parents_mdp;
+    protected $Parents_mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Parents_token;
+    protected $Parents_token;
 
     /**
      * @ORM\Column(type="array")
      */
-    private $Parents_role = ["Utilisateur"];
+    protected $Parents_role = ["Utilisateur"];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
      */
-    private $Parents_prenom;
+    protected $Parents_prenom;
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
      */
-    private $Parents_nom;
+    protected $Parents_nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Parents_adresse;
+    protected $Parents_adresse;
 
     /**
      * @ORM\Column(type="string", length=13, nullable=true)
      */
-    private $Parents_telephone;
+    protected $Parents_telephone;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Parents_cp;
+    protected $Parents_cp;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Parents_ville;
+    protected $Parents_ville;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Parents_status;
+    protected $Parents_status = 1;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Parents_date_creation;
+    protected $Parents_date_creation;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $Parents_date_modif;
+    protected $Parents_date_modif;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Enfants", mappedBy="Enfants_parents")
      */
-    private $Parents_enfants;
+    protected $Parents_enfants;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="Reservations_parents", orphanRemoval=true)
      */
-    private $Parents_reservations;
+    protected $Parents_reservations;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Avis_parents", orphanRemoval=true)
      */
-    private $Parents_Avis;
+    protected $Parents_Avis;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
 
     public function __construct()
     {
         $this->Parents_enfants = new ArrayCollection();
         $this->Parents_reservations = new ArrayCollection();
         $this->Parents_Avis = new ArrayCollection();
+        $this->Parents_token = bin2hex(random_bytes(10));
+        $this->Parents_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -130,9 +139,29 @@ abstract class Parents implements UserInterface
         return $this;
     }
 
+    public function getUsername()
+    {
+        return $this->Parents_pseudo;
+    }
+
+    public function setUsername($Parents_pseudo)
+    {
+        $this->Parents_pseudo = $Parents_pseudo;
+    }
+
     public function getParentsMail(): ?string
     {
         return $this->Parents_mail;
+    }
+
+    public function getEmail()
+    {
+        return $this->Parents_mail;
+    }
+
+    public function setEmail($Parents_mail)
+    {
+        $this->Parents_mail = $Parents_mail;
     }
 
     public function setParentsMail(string $Parents_mail): self
@@ -152,6 +181,16 @@ abstract class Parents implements UserInterface
         $this->Parents_mdp = $Parents_mdp;
 
         return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->Parents_mdp;
+    }
+
+    public function setPassword($Parents_mdp)
+    {
+        $this->Parents_mdp = $Parents_mdp;
     }
 
     public function getParentsToken(): ?string
@@ -176,6 +215,11 @@ abstract class Parents implements UserInterface
         $this->Parents_role = $Parents_role;
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return $this->Parents_role;
     }
 
     public function getParentsPrenom(): ?string
@@ -285,6 +329,28 @@ abstract class Parents implements UserInterface
 
         return $this;
     }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
 
     /**
      * @return Collection|Enfants[]

@@ -11,9 +11,16 @@ namespace App\Entity;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use phpDocumentor\Reflection\Types\Parent_;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @UniqueEntity(fields={"Parents_pseudo"}, message="There is already an account with this Parents_pseudo")
+ * @ORM\Table(name="Parents")
+ * @ORM\Entity
  */
 class Heritage extends Parents
 {
@@ -41,4 +48,20 @@ class Heritage extends Parents
     {
         parent::getSalt();
     }
+
+    public function setParents_Pseudo(string $Parents_pseudo)
+    {
+        parent::setParentsPseudo($Parents_pseudo);
+    }
+
+    public function getPlainPassword()
+    {
+        parent::getPlainPassword();
+    }
+
+    public function setPlainPassword($password)
+    {
+        parent::setPlainPassword($password);
+    }
+
 }

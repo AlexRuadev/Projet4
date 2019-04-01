@@ -51,6 +51,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('Parents_pseudo', TextType::class)
+            ->add('Parents_mail', EmailType::class)
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Password'),
@@ -62,7 +63,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Heritage::class,
+            'data_class' => Parents::class,
         ));
     }
 }
