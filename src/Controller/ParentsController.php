@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParentsController extends AbstractController
 {
     /**
-     * @Route("/profil_parents", name="parents")
+     * @Route("/profil-parent", name="parents")
      */
     public function index()
     {

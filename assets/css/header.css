@@ -73,6 +73,8 @@ nav ul li a {
 	text-decoration: none;
 	color: white;
 	font-size: 20px;
+	border-bottom: 5px solid transparent;
+	transition: 0.2s;
 }
 
 nav ul li a:hover {
@@ -80,7 +82,6 @@ nav ul li a:hover {
 	color: #FFF;
 	font-size: 20px;
 	border-bottom: 1px solid #FFF;
-	transition: 0.2s;
 }
 
 .menu-icon {
@@ -96,7 +97,7 @@ nav ul li a:hover {
 	display: none;
 }
 
-@media(max-width: 580px) {
+@media(max-width: 680px) {
 	.logo {
 		position: fixed;
 		top: 0;

@@ -80,6 +80,15 @@ a:hover {
 	font-size: 0.8em;
 }
 
+.espacement-ligne {
+	margin-top: 5%;
+}
+
+
+/*********************************************
+//				PAGE LISTING
+*********************************************/
+
 .case-search {
 	margin-top: 70px;
 }
@@ -127,7 +136,7 @@ a:hover {
 }
 
 /*********************************************
-//				PROFIL PARENTS
+//				PROFILS
 *********************************************/
 
 .image-profil {
@@ -137,15 +146,42 @@ a:hover {
 	border-radius: 50%;
 }
 
-.details-profils {
-    margin-top: 7%;
+.image-entreprise {
+	height: 100%;
+	width: 100%;
 }
 
 .alignement-gauche {
 	text-align: left;
 }
 
+.case-enfant a {
+	color: black;
+	transition: 0.5s;
+}
 
+.case-enfant a:hover {
+	color: #FF8360;
+}
+
+.case-parent p span {
+	font-size: 1.15em;
+}
+
+@media only screen and (max-width: 768px) {
+	.case-parent {
+		font-size: 0.6em;
+	}
+
+	.image-profil {
+		height: 100px;
+		width: 100px;
+	}
+
+	.alignement-gauche {
+		text-align: inherit;
+	}
+}
 
 /*********************************************
 //				FOOTER
