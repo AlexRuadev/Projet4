@@ -84,6 +84,10 @@ a:hover {
 	margin-top: 5%;
 }
 
+.green {
+	color: limegreen;
+}
+
 
 /*********************************************
 //				PAGE LISTING
@@ -148,7 +152,7 @@ a:hover {
 
 .image-entreprise {
 	 height: 100%;
-	 width: 50%;
+	 width: 75%;
  }
 
 .alignement-gauche {
@@ -172,6 +176,19 @@ a:hover {
 	font-size: 1.15em;
 }
 
+.lienplanning {
+	font-size: 0.5em;
+	color: #FF8360;
+}
+
+.lienplanning:hover {
+	color: white;
+}
+
+/*.row-image-entreprise {
+	max-height: 300px;
+}*/
+
 @media only screen and (max-width: 768px) {
 	.case-parent {
 		font-size: 0.6em;
@@ -184,11 +201,6 @@ a:hover {
 
 	.alignement-gauche {
 		text-align: inherit;
-	}
-
-	.image-entreprise {
-		width: 220px;
-		height: 350px;
 	}
 
 	.desc-entreprise {
