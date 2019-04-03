@@ -32,7 +32,7 @@ class Bracelet
     private $Bracelet_date_modif;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Enfants", inversedBy="Enfants_Bracelet", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Enfants", inversedBy="Enfants_Bracelet")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Bracelet_enfants;
