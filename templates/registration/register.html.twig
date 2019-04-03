@@ -3,12 +3,28 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.Parents_pseudo) }}
-    {{ form_row(form.Parents_mail) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                        <div class="form-group">{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}</div>
 
-    <button type="submit">Register!</button>
-    {{ form_end(form) }}
+                    {{ dump() }}
+
+                        <div class="form-group">
+                            {{  form_label(form.Parents_pseudo,'Mon pseudo') }}
+                            {{  form_widget(form.Parents_pseudo, {'attr':{'class':'form-control'}}) }}
+                            {{  form_errors(form.Parents_pseudo) }}
+                        </div>
+                        <div class="form-group"> {{ form_row(form.Parents_mail, {'attr': {'class': 'form-control'}}) }}</div>
+                        <div class="form-group"> {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}</div>
+                        <div class="form-group"> {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}</div>
+
+                    <button type="submit" class="btn btn-primary ">Register!</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
