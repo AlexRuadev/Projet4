@@ -2,114 +2,146 @@
 bleu: rgb(201, 201, 255); #C9C9FF; hover #7575FF;
 mauve: rgb(241, 203, 255); #F1CBFF; hover #E497FF;
 */
-@import url(~bootstrap/dist/css/bootstrap.min.css);
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
 }
 
-html,
-body {
-    color: #555;
-    font-weight: 300;
-    font-size: 15px;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+.header_landing {
+	width: 100%;
+	height: 350px;
+	background: linear-gradient(to right bottom, rgba(255, 131, 96, 0.5), rgba(255, 255, 255, 0.2)), url("../img/fond.jpg")  no-repeat 50% 50%;
+	background-size: cover;
 }
 
-/*------------------------------------------------*/
-/* HEADER */
-/*------------------------------------------------*/
-
-header {
-    position: absolute;
-    z-index: 10;
-    width: 100%;
+.header_classico {
+	width: 100%;
 }
 
-.navbar {
-    padding: 20px 0;
+header .title {
+	text-align: center;
+	padding-top: 155px;
+	color: #FFFFFF;
 }
 
-.navbar-brand {
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 1.7em;
-    color: red;
+header .title h1 {
+	font-size: 2em;
 }
 
-.nav-item {
-    font-weight: 600;
-    text-transform: uppercase;
+header .title h2 {
+	font-size: 1.5em;
 }
 
-.navbar-light .navbar-nav .nav-item .nav-link:hover,
-.navbar-light .navbar-nav .nav-item.active .nav-link
-{
-    background: lime;
-    color: black;
+.logo {
+	position: fixed;
+	float: left;
+	margin : 16px 36px;
+	color: black;
+	font-size: 24px;
 }
 
-.navbar-light .navbar-nav .nav-item .nav-link {
-    background: lime;
-    padding: 5px 15px;
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width : 100%;
+	z-index: 10;
+	-webkit-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
+	box-shadow: 2px 3px 5px 2px rgba(0,0,0,0.5);;
 }
 
-.banner h2 {
-    margin:1em 0 0;
-    padding: 0;
-    font-size: 1.5em;
-    line-height: 1.5;
-    color: #111;
+nav ul {
+	list-style: none;
+	background: rgba(255, 131, 96,1);
+	overflow: hidden;
+	color: black;
+	padding: 0;
+	text-align: right;
+	margin: 0;
 }
 
-.banner {
-    position: relative;
-    background-image: url("../img/imageaccueil.jpg");
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    padding: 250px 0 200px;
+nav ul li {
+	display: inline-block;
+	padding: 20px;
 }
 
-.btnD1 {
-    display: inline-block;
-    margin: 1em 0 0;
-    background: #ff2670;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border: none;
-    font-weight: 600;
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	border-bottom: 5px solid transparent;
+	transition: 0.2s;
 }
 
-.btnD1:hover {
-    color: hotpink;
-    text-decoration: none;
+nav ul li a:hover {
+	text-decoration: none;
+	color: #FFF;
+	font-size: 20px;
+	border-bottom: 1px solid #FFF;
 }
 
-.navbar-light .navbar-toggler {
-    border: none;
-    color: #fff;
-    border: 2px solid coral;
-    border-radius: 0;
-    outline: none;
+.menu-icon {
+	width: 100%;
+	background: rgba(255, 131, 96,1);
+	text-align: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 15px 24px;
+	cursor: pointer;
+	color: black;
+	display: none;
 }
 
-.navbar-collapse {
-    background: blue;
-}
+@media(max-width: 680px) {
+	.logo {
+		position: fixed;
+		top: 0;
+		margin-top: 16px;
+	}
 
-@media (max-width: 768px) {
-    .banner {
+	nav ul {
+		max-height: 0;
+		background: rgba(255, 131, 96,1);
+		transition: 0.4s;
+	}
 
-        padding: 200px 0;
-    }
+	.showing {
+		max-height: 20em;
+	}
 
-    .banner h2 {
-        font-size: 1.2em;
-    }
+	nav ul li {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 24px 0;
+		text-align: center;
+		border-bottom: 1px solid transparent;
+	}
+
+	nav ul li a {
+		padding: 20px 30%;
+	}
+
+	nav ul li a:hover {
+		border-bottom: 0;
+	}
+
+	nav ul li:hover {
+		border-bottom: 1px solid white;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		-ms-transition: 0.5s;
+		-o-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.menu-icon {
+		display: block;
+	}
 }

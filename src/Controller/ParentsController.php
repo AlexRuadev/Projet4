@@ -8,11 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParentsController extends AbstractController
 {
     /**
-     * @Route("/parents", name="parents")
+     * @Route("/profil-parent", name="parents")
      */
     public function index()
     {
-        return $this->render('parents/index.html.twig', [
+        return $this->render('parents/profil_parent.html.twig', [
             'controller_name' => 'ParentsController',
         ]);
     }

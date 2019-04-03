@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="content">
+        <div class="container">
+            <div class="case case-parent">
+                <div class="row">
+                    <div class="col">
+                        <h3>Mon profil:</h3>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col-md-4">
+                        <img class="image-profil" src={{ asset('build/images/image2_accueil.5c0b4f14.jpg') }} alt="avatar">
+                    </div>
+                    <div class="col-3 alignement-gauche">
+                        <p><span>Pseudo: </span>MartinMatin</p>
+                        <p><span>Mail: </span>Arthur@arthur.fr</p>
+                        <p><span>Prénom: </span>Arthur</p>
+                        <p><span>Nom: </span>Thomson</p>
+                    </div>
+                    <div class="col-3 alignement-gauche">
+                        <p><span>Téléphone: </span>02******84</p>
+                        <p><span>Adresse: </span>36 mes couilles au bord de l'eau </p>
+                        <p><span>Code postal: </span>76000</p>
+                        <p><span>Ville: </span>Rouen</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col espacement-ligne">
+                        <div class="text-center">
+                            <a href="#" class="btn bouton button">Modifier mon profil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case case-enfant">
+                <div class="row">
+                    <div class="col">
+                        <h3>Vos enfants:</h3>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <a href="" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Juan-Carlos</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Josélito</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Marcelino</p>
+                            <!-- Large modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        ...
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

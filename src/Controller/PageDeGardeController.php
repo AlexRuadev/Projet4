@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageDeGardeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/landing", name="landing")
      */
     public function index()
     {
