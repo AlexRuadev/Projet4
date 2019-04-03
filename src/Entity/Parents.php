@@ -325,7 +325,7 @@ class Parents implements UserInterface
 
     public function setParentsDateModif(?\DateTimeInterface $Parents_date_modif): self
     {
-        $this->Parents_date_modif = $Parents_date_modif;
+        $this->Parents_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }
@@ -444,5 +444,9 @@ class Parents implements UserInterface
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->Parents_pseudo . ' ['.strval($this->id) . '] ';
     }
 }

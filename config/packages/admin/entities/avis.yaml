@@ -1,0 +1,21 @@
+easy_admin:
+  entities:
+    Avis:
+      disabled_actions: ['new']
+      class: App\Entity\Avis
+      label: 'Avis'
+      list:
+        title: 'Avis'
+        fields:
+            - 'id'
+            - { property: 'Avis_note', type: 'integer', label: 'Note'  }
+            - { property: 'Avis_commentaires', type: 'string', label: 'Commentaires'  }
+            - { property: 'Avis_signalement', type: 'integer', label: 'Signalement'  }
+            - { property: 'Avis_status', type: 'toggle', label: 'Status'  }
+            - { property: 'Avis_date_creation', type: 'datetime', label: 'Date de création'  }
+            - { property: 'Avis_date_modif', type: 'datetime', label: 'Date de modification'  }
+      edit:
+        title: 'Modification Avis'
+        fields:
+          - { property: 'avis_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'avis_date_modif', label: 'Date de modification' , type: 'date'}
