@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
@@ -29,10 +30,16 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function getCredentials(Request $request)
     {
-        return [
+        $credentials = [
             'Parents_pseudo' => $request->request->get('Parents_pseudo'),
             'Parents_mdp' => $request->request->get('Parents_mdp'),
         ];
+        $request->getSession()->set(
+            Security::LAST_USERNAME,
+            $credentials['Parents_pseudo']
+        );
+
+        return $credentials;
     }
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
@@ -40,8 +47,11 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function checkCredentials($credentials, UserInterface $user)
     {
-        // only needed if we need to check a password - we'll do that later!
-        return true;
+        $password = $credentials['Parents_mdp'];
+        if ($password == 'iliketurtles') {
+            return true;
+        }
+        return false;
     }
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
@@ -49,6 +59,12 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     protected function getLoginUrl()
     {
-
+        return $this->router->generate('app_login');
     }
+
+    protected function getDefaultSuccessRedirectUrl()
+    {
+        return $this->router->generate('home');
+    }
+
 }

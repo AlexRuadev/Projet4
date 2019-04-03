@@ -21,6 +21,9 @@ security:
                     - App\Security\LoginFormAuthenticator
                     - App\Security\ConnexionFormAuthenticator
                 entry_point: App\Security\LoginFormAuthenticator
+            logout:
+                path: app_logout
+                target: /home
 
             # activate different ways to authenticate
 
