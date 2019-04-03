@@ -20,7 +20,7 @@ class EnfantsRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Enfants[] Returns an array of Enfants objects
+    //  * @return EnfantsController[] Returns an array of EnfantsController objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class EnfantsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Enfants
+    public function findOneBySomeField($value): ?EnfantsController
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')

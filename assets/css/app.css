@@ -143,6 +143,15 @@ a:hover {
 /*********************************************
 //				PROFILS
 *********************************************/
+.logo-enfant {
+	font-size: 2.3em;
+	margin-top: 5%;
+	color:  rgba(255, 131, 96,1);
+}
+
+.cote-enfant {
+	margin-top: 10%;
+}
 
 .image-profil {
 	height: 170px;
@@ -168,6 +177,7 @@ a:hover {
 .case-enfant a:hover {
 	color: #FF8360;
 }
+
 
 .case-parent p span {
 	font-size: 1.15em;
