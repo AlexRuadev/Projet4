@@ -14,7 +14,7 @@ require('../../node_modules/leaflet/dist/leaflet.css')
 const $ = require('jquery');
 require('popper.js');
 require('bootstrap');
-
+import 'leaflet/dist/leaflet.css'; import 'leaflet/dist/leaflet'; import 'leaflet-draw'; import 'leaflet-draw/dist/leaflet.draw.css'; import 'leaflet.markercluster'; import 'leaflet.markercluster/dist/MarkerCluster.css';
 
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();

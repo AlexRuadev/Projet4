@@ -599,6 +599,16 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@fullcalendar/core@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.0.1.tgz#9ae5d53f67dc5f5062ffa142b9226d57b0a3b41e"
+  integrity sha512-dUhBtZ2hIuPFJP4Rr1QOFs5/nG5EAnzqMDvy1IZ0JEBw/+0Dwj4X55Ugb3buHBh5GDrQmPbZVW21mbcUqeTprQ==
+
+"@fullcalendar/daygrid@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.0.1.tgz#383bfd51dd55bbec2ccc90926e9dbdf710aa3789"
+  integrity sha512-nKFFKgTm5eijOukD6pjsQSLlsBoMrKuHXc00zaHaMWSeJndGHxtseR8oeHOnclNNScMKLXLNZthzEduSqqyuRw==
+
 "@symfony/webpack-encore@^0.22.0":
   version "0.22.4"
   resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.22.4.tgz#249609c784706aa3dac9243c55ac4ec667a26d6e"

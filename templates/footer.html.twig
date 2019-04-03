@@ -80,6 +80,7 @@
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <script src={{ asset('build/app.js') }}></script>
 
 <script>
@@ -102,6 +103,9 @@
             }
         })*/
     //Mapping
+
+
+
     var mymap = L.map('mapid',
         {
             center : [49.440900, 1.095105],
@@ -118,12 +122,16 @@
             .openOn(mymap);
     }
     mymap.on('click', onMapClick);
+
+    L.Control.geocoder().addTo(mymap);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoiY3luYXRoMTciLCJhIjoiY2p1MHkyaTBvMDNneTN6bG44MWdzempvdiJ9.2lltbNvTaP_uM3J_hNOiwA'
     }).addTo(mymap);
+
+
 </script>
 </body>
 </html>
