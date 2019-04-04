@@ -108,9 +108,11 @@
 
     var mymap = L.map('mapid',
         {
-            center : [49.440900, 1.095105],
+            center : [{{ lat }}, {{ lon }}],
             zoom : 15});
-    var marker = L.marker([49.440900, 1.095105]).addTo(mymap);
+
+    var marker = L.marker([{{ lat }}, {{ lon }}]).addTo(mymap);
+
     marker.bindPopup("Adresse de la crèche").openPopup();
 
     var popup = L.popup();
@@ -118,18 +120,25 @@
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("Coordonnées " + e.latlng.toString())
+            .setContent("Mon adresse")
             .openOn(mymap);
     }
     mymap.on('click', onMapClick);
 
-    L.Control.geocoder().addTo(mymap);
+    console.log(popup);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoiY3luYXRoMTciLCJhIjoiY2p1MHkyaTBvMDNneTN6bG44MWdzempvdiJ9.2lltbNvTaP_uM3J_hNOiwA'
     }).addTo(mymap);
+
+    L.Control.geocoder({
+       placeholder: "Rechercher",
+        showResultIcons: true,
+        }
+    ).addTo(mymap);
+
 
 
 </script>
