@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Avis;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Avis|null find($id, $lockMode = null, $lockVersion = null)
  * @method Avis|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class AvisRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Avis::class);
     }
-
     // /**
     //  * @return Avis[] Returns an array of Avis objects
     //  */
@@ -35,7 +31,6 @@ class AvisRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Avis
     {

@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Parents;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Parents|null find($id, $lockMode = null, $lockVersion = null)
  * @method Parents|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class HeritageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Parents::class);
     }
-
     // /**
     //  * @return Parents[] Returns an array of Parents objects
     //  */
@@ -35,7 +31,6 @@ class HeritageRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Parents
     {

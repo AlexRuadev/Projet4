@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Medical;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Medical|null find($id, $lockMode = null, $lockVersion = null)
  * @method Medical|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class MedicalRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Medical::class);
     }
-
     // /**
     //  * @return Medical[] Returns an array of Medical objects
     //  */
@@ -35,7 +31,6 @@ class MedicalRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Medical
     {

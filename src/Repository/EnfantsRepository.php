@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Enfants;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Enfants|null find($id, $lockMode = null, $lockVersion = null)
  * @method Enfants|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,9 +15,8 @@ class EnfantsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Enfants::class);
     }
-
     // /**
-    //  * @return EnfantsController[] Returns an array of EnfantsController objects
+    //  * @return Enfants[] Returns an array of Enfants objects
     //  */
     /*
     public function findByExampleField($value)
@@ -35,9 +31,8 @@ class EnfantsRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
-    public function findOneBySomeField($value): ?EnfantsController
+    public function findOneBySomeField($value): ?Enfants
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')
