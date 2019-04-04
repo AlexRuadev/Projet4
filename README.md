@@ -20,7 +20,7 @@ Toutes les commandes:
     composer require admin
     
     - doctrine:  
-    composer composer require doctrine/doctrine-bundle
+    composer require doctrine/doctrine-bundle
     
     - calendarbundle:  
     composer req symfony/orm-pack  
