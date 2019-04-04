@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParentsRepository")
@@ -113,6 +114,7 @@ class Parents implements UserInterface
      */
     protected $plainPassword;
 
+
     public function __construct()
     {
         $this->Parents_enfants = new ArrayCollection();
@@ -120,6 +122,7 @@ class Parents implements UserInterface
         $this->Parents_Avis = new ArrayCollection();
         $this->Parents_token = bin2hex(random_bytes(10));
         $this->Parents_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+
     }
 
     public function getId(): ?int
