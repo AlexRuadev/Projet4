@@ -10,19 +10,27 @@
                         <div class="form-group">{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}</div>
 
 {#                    pour verifier le tableau#}
-                    {{ dump(form.plainPassword.first.vars) }}
+{#                    {{ dump(form.plainPassword.first.vars) }}#}
 
+                    {% set class= '' %}
+                    {% if not form.Parents_pseudo.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
                         <div class="form-group">
                             <label for="{{ form.Parents_pseudo.vars.id }}">Pseudo</label>
-                            <input type="text" class="form-control" id="{{ form.Parents_pseudo.vars.id }}" name="{{ form.Parents_pseudo.vars.full_name }}" value="{{ form.Parents_pseudo.vars.value }}">
+                            <input type="text" class="form-control {{ class }}" id="{{ form.Parents_pseudo.vars.id }}" name="{{ form.Parents_pseudo.vars.full_name }}" value="{{ form.Parents_pseudo.vars.value }}">
                             {{  form_errors(form.Parents_pseudo) }}
 {#                            sert a passer le submitted en true.#}
                             {% do form.Parents_pseudo.setRendered %}
                         </div>
 
+                    {% set class= '' %}
+                    {% if not form.Parents_mail.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
                         <div class="form-group">
                             <label for="{{ form.Parents_mail.vars.id }}">Mail</label>
-                            <input type="email" class="form-control" id="{{  form.Parents_mail.vars.id }}" name="{{ form.Parents_mail.vars.full_name }}" value="{{  form.Parents_mail.vars.value }}">
+                            <input type="email" class="form-control {{ class }}"  id="{{  form.Parents_mail.vars.id }}" name="{{ form.Parents_mail.vars.full_name }}" value="{{ form.Parents_mail.vars.value }}">
                             {{  form_errors(form.Parents_mail) }}
                             {% do form.Parents_mail.setRendered %}
                         </div>
@@ -38,10 +46,13 @@
                             {% do form.plainPassword.first.setRendered %}
                            </div>
 
-
+                    {% set class= '' %}
+                    {% if not form.plainPassword.second.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
                     <div class="form-group ">
                         <label for="{{  form.plainPassword.second.vars.id }}">Mot de passe</label>
-                        <input type="password" class="form-control" id="{{  form.plainPassword.second.vars.id }}" name="{{  form.plainPassword.second.vars.full_name }}" value="{{ form.plainPassword.second.vars.value }}" >
+                        <input type="password" class="form-control {{ class }}" id="{{  form.plainPassword.second.vars.id }}" name="{{  form.plainPassword.second.vars.full_name }}" value="{{ form.plainPassword.second.vars.value }}" >
                         {{  form_errors(form.plainPassword.second) }}
                         {% do form.plainPassword.second.setRendered %}
                     </div>
