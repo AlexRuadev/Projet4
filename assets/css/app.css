@@ -260,3 +260,21 @@ footer h5 {
 .underline {
 	text-decoration: underline;
 }
+
+/*********************************************
+//				FORMULAIRES
+*********************************************/
+.form-largeur {
+	width: 35%;
+	margin: 5% auto 5% auto;
+	padding: 40px;
+	border: 2px solid rgba(255, 131, 96,1);
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 2px 2px 5px rgba(255, 131, 96,0.7);
+}
+
+.titre-form-largeur {
+	margin: 5%;
+	text-align: center;
+}

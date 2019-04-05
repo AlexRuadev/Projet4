@@ -6,7 +6,15 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire d'insription</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur">
                         <div class="form-group">{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}</div>
 
 {#                    pour verifier le tableau#}
@@ -57,9 +65,9 @@
                         {% do form.plainPassword.second.setRendered %}
                     </div>
 
-
-                    <button type="submit" class="btn btn-primary ">Register!</button>
+                    <button type="submit" class="btn button bouton">Je m'inscris</button>
                     {{ form_end(form) }}
+                    </div>
                 </div>
             </div>
         </div>
