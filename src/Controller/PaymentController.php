@@ -18,7 +18,7 @@ class PaymentController extends AbstractController
     }
 
     /**
-     * @Route("/stripe", name="stripe")
+     * @Route("/paiement", name="paiement")
      */
     public function payment()
     {
@@ -32,7 +32,7 @@ class PaymentController extends AbstractController
           "receipt_email" => "gauthier.guigz@gmail.com"
           ]);
           
-          return $this->render('payment/stripe.html.twig', [
+          return $this->render('payment/paiement.html.twig', [
             'controller_name' => 'PaymentController',
         ]);
     }
