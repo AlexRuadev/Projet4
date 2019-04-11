@@ -20,18 +20,19 @@ class PaymentController extends AbstractController
     /**
      * @Route("/stripe", name="stripe")
      */
-    public function payment(Request $request)
+    public function payment()
     {
         \Stripe\Stripe::setApiKey("sk_test_gUMcR5A644I85YtgJj8Pr1P700iehIRShK");
 
         \Stripe\Charge::create([
-        "amount" => 2000,
-        "currency" => "eur",
-        "source" => $request->request->get('stripeToken'), // obtained with Stripe.js
-        "description" => "paiement de test"
-        ]);
-
-        return $this->render('payment/stripe.html.twig', [
+          "amount" => 500,
+          "currency" => "eur",
+          "source" => "tok_amex", // obtained with Stripe.js
+          "description" => "TEST PAIEMENT",
+          "receipt_email" => "gauthier.guigz@gmail.com"
+          ]);
+          
+          return $this->render('payment/stripe.html.twig', [
             'controller_name' => 'PaymentController',
         ]);
     }
