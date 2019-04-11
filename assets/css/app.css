@@ -3,7 +3,13 @@
 @import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 body {
+	margin: 0;
+	padding: 0;
 	background-color: #EEE;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 a:hover {
@@ -279,6 +285,27 @@ footer h5 {
 	text-align: center;
 }
 
+.modalregister {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+	z-index: 100;
+}
+
+.modal-wrapper {
+	overflow: auto;
+	width: 600px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	padding: 20px;
+	background-color: white;
+}
 .bouton-form {
 	background: rgba(255, 131, 96,1);
 	border: 1px solid rgba(255, 131, 96,1);
