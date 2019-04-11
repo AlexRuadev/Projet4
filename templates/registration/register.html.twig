@@ -5,7 +5,7 @@
 {% block body %}
     <aside id="modal" class="modalregister" aria-hidden="true" role="note" aria-labelledby="titlemodal" style="display: none;">
         <div class="modal-wrapper modal-js-stop">
-            <button class="modal-js-close">Annuler</button>
+            <i class="modal-js-close fa fa-times"></i>
             <h1 id="titlemodal">Why would a robot need to drink?</h1>
             <p>No. We're on the top. No! Don't jump! Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? I videotape every customer that comes in here, so that I may blackmail them later.</p>
             <p>As an interesting side note, as a head without a body, I envy the dead. Why would I want to know that? <strong> I love you, buddy!</strong> <em> Fry, you can't just sit here in the dark listening to classical music.</em> Throw her in the brig.</p>
@@ -40,7 +40,6 @@
                 <div class="col">
                     <div class="titre-form-largeur">
                         <h2>Formulaire d'insription</h2>
-                        <a href="#modal" class="modal-js">Ouvrir modal</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +96,9 @@
                         {% do form.plainPassword.second.setRendered %}
                     </div>
 
-                    <button type="submit" class="btn button bouton-form">Je m'inscris</button>
+                        <p class="conditions-g">J'ai lu et j'accepte les <a href="#modal" class="modal-js">Conditions générales d'utilisation</a></p>
+
+                        <button type="submit" class="btn button bouton-form">Je m'inscris</button>
                     {{ form_end(form) }}
                     </div>
                 </div>
