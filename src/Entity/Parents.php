@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Parents implements UserInterface
 {
     /**
-     * @ORM\Id()
+     * @ORM\Id()composer require doctrine/doctrine-bundle
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
