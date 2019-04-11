@@ -306,6 +306,19 @@ footer h5 {
 	padding: 20px;
 	background-color: white;
 }
+.bouton-form {
+	background: rgba(255, 131, 96,1);
+	border: 1px solid rgba(255, 131, 96,1);
+	color: #fff;
+	transition: 0.5s;
+}
+
+.bouton-form:hover {
+	background: #ff5b2d;
+	border: 1px solid #ff5b2d;
+	color: #fff;
+}
+
 
 .conditions-g {
 	font-size : 0.5em;
