@@ -11,16 +11,21 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 
 class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     private $parentsRepository;
     private $router;
+    private $csrfTokenManager;
 
-    public function __construct(ParentsRepository $parentsRepository, RouterInterface $router)
+    public function __construct(ParentsRepository $parentsRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager)
     {
         $this->parentsRepository = $parentsRepository;
         $this->router = $router;
+        $this->csrfTokenManager = $csrfTokenManager;
     }
     public function supports(Request $request)
     {
@@ -33,6 +38,7 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
         $credentials = [
             'Parents_pseudo' => $request->request->get('Parents_pseudo'),
             'Parents_mdp' => $request->request->get('Parents_mdp'),
+            'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
@@ -43,6 +49,10 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
+        $token = new CsrfToken('authenticate', $credentials['csrf_token']);
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            throw new InvalidCsrfTokenException();
+        }
         return $this->parentsRepository->findOneBy(['Parents_pseudo' => $credentials['Parents_pseudo']]);
     }
     public function checkCredentials($credentials, UserInterface $user)
