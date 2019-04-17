@@ -12,7 +12,7 @@ class BackOfficeController extends AbstractController
      */
     public function index()
     {
-        return $this->render('back_office/index.html.twig', [
+        return $this->render('back_office/login.html.twig', [
             'controller_name' => 'BackOfficeController',
         ]);
     }
