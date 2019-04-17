@@ -9,27 +9,27 @@ security:
 
     firewalls:
         parents:
-            pattern: ^/
+            pattern: ^/parents/
             anonymous: true
             provider: parents
             guard:
                 authenticators:
                     - App\Security\ConnexionFormAuthenticator
             form_login:
-                login_path: /login
-                check_path: /login
+                login_path: /parents/login
+                check_path: /parents/login
             logout:
                 path: app_logout
         entreprises:
-            pattern: ^/
+            pattern: ^/entreprises/
             anonymous: true
             provider: entreprises
             guard:
                 authenticators:
                     - App\Security\LoginEntrFormAuthenticator
             form_login:
-                login_path: /loginentr
-                check_path: /loginentr
+                login_path: /entreprises/loginentr
+                check_path: /entreprises/loginentr
             logout:
                 path: app_logoutentr
     access_control:
