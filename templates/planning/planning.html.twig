@@ -4,6 +4,22 @@
     <div class="content">
         <div class="container">
             <h2>{{ date }}</h2>
+            <p>{{ nbsemaines }}</p>
+            <table>
+                {% for i in 1..nbsemaines %}
+                <tr>
+                    <td>Lundi</td>
+                    <td>Mardi</td>
+                    <td>Mercredi</td>
+                    <td>Jeudi</td>
+                    <td>Vendredi</td>
+                    <td>Samedi</td>
+                    <td>Dimanche</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
 
         </div>
     </div>
