@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Bracelet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Bracelet|null find($id, $lockMode = null, $lockVersion = null)
  * @method Bracelet|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class BraceletRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Bracelet::class);
     }
-
     // /**
     //  * @return Bracelet[] Returns an array of Bracelet objects
     //  */
@@ -35,7 +31,6 @@ class BraceletRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Bracelet
     {

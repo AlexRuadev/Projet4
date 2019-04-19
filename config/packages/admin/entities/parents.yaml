@@ -1,7 +1,25 @@
 easy_admin:
   entities:
-    Admin:
+    Parents:
+      disabled_actions: ['new']
       class: App\Entity\Parents
       label: 'Parents'
       list:
-          title: 'test'
+          title: 'Parents'
+          fields:
+            - 'id'
+            - { property: 'parents_pseudo', type: 'string', label: 'Pseudo' }
+            - { property: 'parents_mail', type: 'email', label: 'Email' }
+            - { property: 'parents_role', type: 'simple_array', label: 'Rôle' }
+            - { property: 'parents_status', type: 'toggle', label: 'Status' }
+            - { property: 'parents_date_creation', type: 'datetime', label: 'Date de création' }
+            - { property: 'parents_date_modif', type: 'datetime', label: 'Date de modification' }
+            - { property: 'Parents_enfants', type: 'simple_array', label: 'Enfants ID' }
+      edit:
+        title: 'Modification Parents'
+        fields:
+          - { property: 'parents_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'parents_date_modif', label: 'Date de modification' , type: 'date'}
+
+
+

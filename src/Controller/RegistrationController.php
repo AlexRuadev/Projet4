@@ -57,6 +57,7 @@ class RegistrationController extends AbstractController
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
@@ -71,7 +72,7 @@ class RegistrationController extends AbstractController
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('accueil.html.twig');
+            return $this->render('accueil.html.twig');
         }
 
         return $this->render(

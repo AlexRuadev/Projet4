@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Reservations;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Reservations|null find($id, $lockMode = null, $lockVersion = null)
  * @method Reservations|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class ReservationsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reservations::class);
     }
-
     // /**
     //  * @return Reservations[] Returns an array of Reservations objects
     //  */
@@ -35,7 +31,6 @@ class ReservationsRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Reservations
     {

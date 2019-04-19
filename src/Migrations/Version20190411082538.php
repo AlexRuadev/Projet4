@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190328084127 extends AbstractMigration
+final class Version20190411082538 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -32,21 +32,18 @@ final class Version20190328084127 extends AbstractMigration
         $this->addSql('CREATE TABLE disponibilite_reservations (disponibilite_id INTEGER NOT NULL, reservations_id INTEGER NOT NULL, PRIMARY KEY(disponibilite_id, reservations_id))');
         $this->addSql('CREATE INDEX IDX_9FC890072B9D6493 ON disponibilite_reservations (disponibilite_id)');
         $this->addSql('CREATE INDEX IDX_9FC89007D9A7F869 ON disponibilite_reservations (reservations_id)');
+        $this->addSql('CREATE TABLE enfants (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, enfants_parents_id INTEGER DEFAULT NULL, enfants_prenom VARCHAR(45) NOT NULL, enfants_nom VARCHAR(45) NOT NULL, enfants_date_de_naissance DATE NOT NULL, enfants_information CLOB DEFAULT NULL, enfants_status BOOLEAN NOT NULL, enfants_date_creation DATETIME NOT NULL, enfants_date_modif DATETIME DEFAULT NULL)');
+        $this->addSql('CREATE INDEX IDX_23E2BAC316EBDBF2 ON enfants (enfants_parents_id)');
         $this->addSql('CREATE TABLE entreprises (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, entreprises_pseudo VARCHAR(45) NOT NULL, entreprises_mail VARCHAR(255) NOT NULL, entreprises_mdp VARCHAR(255) NOT NULL, entreprises_token VARCHAR(255) NOT NULL, entreprises_role CLOB NOT NULL --(DC2Type:array)
         , entreprises_nom VARCHAR(45) DEFAULT NULL, entreprises_effectifs INTEGER DEFAULT NULL, entreprises_adresse VARCHAR(255) DEFAULT NULL, entreprises_cp INTEGER DEFAULT NULL, entreprises_ville VARCHAR(45) DEFAULT NULL, entreprises_telephone VARCHAR(13) DEFAULT NULL, entreprises_siret INTEGER DEFAULT NULL, entreprises_description CLOB DEFAULT NULL, entreprises_horaires CLOB DEFAULT NULL, entreprises_capacite INTEGER DEFAULT NULL, entreprises_note DOUBLE PRECISION DEFAULT NULL, entreprises_tarif CLOB DEFAULT NULL, entreprises_espace_exterieur BOOLEAN DEFAULT NULL, entreprises_status BOOLEAN NOT NULL, entreprises_date_creation DATETIME NOT NULL, entreprises_date_modif DATETIME NOT NULL)');
         $this->addSql('CREATE TABLE medical (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, medical_enfants_id INTEGER DEFAULT NULL, medical_regime CLOB DEFAULT NULL, medical_traitement CLOB DEFAULT NULL, medical_allergie CLOB DEFAULT NULL, medical_handicap CLOB DEFAULT NULL, medical_status BOOLEAN NOT NULL, medical_date_creation DATETIME NOT NULL, medical_date_modif DATETIME DEFAULT NULL)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_77DB075A8EC701A0 ON medical (medical_enfants_id)');
+        $this->addSql('CREATE TABLE parents (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, parents_pseudo VARCHAR(45) NOT NULL, parents_mail VARCHAR(255) NOT NULL, parents_mdp VARCHAR(255) NOT NULL, parents_token VARCHAR(255) NOT NULL, parents_role CLOB NOT NULL --(DC2Type:array)
+        , parents_prenom VARCHAR(45) DEFAULT NULL, parents_nom VARCHAR(45) DEFAULT NULL, parents_adresse VARCHAR(255) DEFAULT NULL, parents_telephone VARCHAR(13) DEFAULT NULL, parents_cp INTEGER DEFAULT NULL, parents_ville VARCHAR(255) DEFAULT NULL, parents_status BOOLEAN NOT NULL, parents_date_creation DATETIME NOT NULL, parents_date_modif DATETIME DEFAULT NULL)');
         $this->addSql('CREATE TABLE reservations (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, reservations_parents_id INTEGER NOT NULL, reservations_entreprises_id INTEGER NOT NULL, reservations_status_reservation CLOB NOT NULL --(DC2Type:array)
         , reservations_status BOOLEAN NOT NULL, reservations_date_creation DATETIME NOT NULL, reservations_date_modif DATETIME DEFAULT NULL, reservations_debut DATE NOT NULL, reservations_fin DATE NOT NULL)');
         $this->addSql('CREATE INDEX IDX_4DA23951A0D8E ON reservations (reservations_parents_id)');
         $this->addSql('CREATE INDEX IDX_4DA239947E519F ON reservations (reservations_entreprises_id)');
-        $this->addSql('DROP INDEX IDX_23E2BAC316EBDBF2');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__enfants AS SELECT id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif FROM enfants');
-        $this->addSql('DROP TABLE enfants');
-        $this->addSql('CREATE TABLE enfants (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, enfants_parents_id INTEGER DEFAULT NULL, enfants_prenom VARCHAR(45) NOT NULL COLLATE BINARY, enfants_nom VARCHAR(45) NOT NULL COLLATE BINARY, enfants_date_de_naissance DATE NOT NULL, enfants_information CLOB DEFAULT NULL COLLATE BINARY, enfants_status BOOLEAN NOT NULL, enfants_date_creation DATETIME NOT NULL, enfants_date_modif DATETIME DEFAULT NULL, CONSTRAINT FK_23E2BAC316EBDBF2 FOREIGN KEY (enfants_parents_id) REFERENCES parents (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
-        $this->addSql('INSERT INTO enfants (id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif) SELECT id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif FROM __temp__enfants');
-        $this->addSql('DROP TABLE __temp__enfants');
-        $this->addSql('CREATE INDEX IDX_23E2BAC316EBDBF2 ON enfants (enfants_parents_id)');
     }
 
     public function down(Schema $schema) : void
@@ -58,15 +55,10 @@ final class Version20190328084127 extends AbstractMigration
         $this->addSql('DROP TABLE bracelet');
         $this->addSql('DROP TABLE disponibilite');
         $this->addSql('DROP TABLE disponibilite_reservations');
+        $this->addSql('DROP TABLE enfants');
         $this->addSql('DROP TABLE entreprises');
         $this->addSql('DROP TABLE medical');
+        $this->addSql('DROP TABLE parents');
         $this->addSql('DROP TABLE reservations');
-        $this->addSql('DROP INDEX IDX_23E2BAC316EBDBF2');
-        $this->addSql('CREATE TEMPORARY TABLE __temp__enfants AS SELECT id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif FROM enfants');
-        $this->addSql('DROP TABLE enfants');
-        $this->addSql('CREATE TABLE enfants (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, enfants_parents_id INTEGER DEFAULT NULL, enfants_prenom VARCHAR(45) NOT NULL, enfants_nom VARCHAR(45) NOT NULL, enfants_date_de_naissance DATE NOT NULL, enfants_information CLOB DEFAULT NULL, enfants_status BOOLEAN NOT NULL, enfants_date_creation DATETIME NOT NULL, enfants_date_modif DATETIME DEFAULT NULL)');
-        $this->addSql('INSERT INTO enfants (id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif) SELECT id, enfants_parents_id, enfants_prenom, enfants_nom, enfants_date_de_naissance, enfants_information, enfants_status, enfants_date_creation, enfants_date_modif FROM __temp__enfants');
-        $this->addSql('DROP TABLE __temp__enfants');
-        $this->addSql('CREATE INDEX IDX_23E2BAC316EBDBF2 ON enfants (enfants_parents_id)');
     }
 }

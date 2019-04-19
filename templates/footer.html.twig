@@ -78,6 +78,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src={{ asset('build/app.js') }}></script>
+
+
+/* feature/payment */
+
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
@@ -154,6 +158,11 @@ function stripeTokenHandler(token) {
 </script>
 
 
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+
 <script>
     //menu toggle-button
     $(document).ready(function () {
@@ -173,6 +182,45 @@ function stripeTokenHandler(token) {
                 $('.logo').removeClass('scrolled');
             }
         })*/
+
+
+</script>
+<script>
+    //modal inscription
+    let modal = null;
+
+    const openModal = function (e) {
+        e.preventDefault();
+        const target = document.querySelector(e.target.getAttribute('href'));
+        target.style.display = null;
+        target.setAttribute('aria-hidden', 'false');
+        target.setAttribute('aria-modal', 'true');
+        modal = target;
+        modal.addEventListener('click', closeModal);
+        modal.querySelector('.modal-js-close').addEventListener('click', closeModal);
+        modal.querySelector('.modal-js-stop').addEventListener('click', stopPropagation);
+
+    };
+
+    const closeModal = function (e) {
+        if(modal === false) return;
+        e.preventDefault();
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        modal.setAttribute('aria-modal', 'false');
+        modal.removeEventListener('click', closeModal);
+        modal.querySelector('.modal-js-close').removeEventListener('click', closeModal);
+        modal = null;
+    };
+
+    const stopPropagation = function(e) {
+        e.stopPropagation();
+    };
+
+    document.querySelectorAll('.modal-js').forEach(a => {
+        a.addEventListener('click', openModal);
+
+    });
 </script>
 
 </body>
