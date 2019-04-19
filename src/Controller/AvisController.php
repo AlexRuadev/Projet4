@@ -12,7 +12,7 @@ class AvisController extends AbstractController
      */
     public function index()
     {
-        return $this->render('avis/index.html.twig', [
+        return $this->render('avis/login.html.twig', [
             'controller_name' => 'AvisController',
         ]);
     }

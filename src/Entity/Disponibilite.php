@@ -113,7 +113,7 @@ class Disponibilite
 
     public function setDisponibiliteDateModif(?\DateTimeInterface $Disponibilite_date_modif): self
     {
-        $this->Disponibilite_date_modif = $Disponibilite_date_modif;
+        $this->Disponibilite_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }
@@ -142,5 +142,9 @@ class Disponibilite
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }
