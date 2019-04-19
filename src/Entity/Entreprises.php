@@ -5,144 +5,159 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EntreprisesRepository")
+ * @UniqueEntity(fields={"Entreprises_pseudo"}, message="There is already an account with this Entreprises_pseudo")
  */
-class Entreprises
+class Entreprises implements UserInterface
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $Entreprises_pseudo;
+    protected $Entreprises_pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Entreprises_mail;
+    protected $Entreprises_mail;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Entreprises_mdp;
+    protected $Entreprises_mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Entreprises_token;
+    protected $Entreprises_token;
 
     /**
      * @ORM\Column(type="array")
      */
-    private $Entreprises_role = [];
+    protected $Entreprises_role = [];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
      */
-    private $Entreprises_nom;
+    protected $Entreprises_nom;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Entreprises_effectifs;
+    protected $Entreprises_effectifs;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Entreprises_adresse;
+    protected $Entreprises_adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Entreprises_cp;
+    protected $Entreprises_cp;
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
      */
-    private $Entreprises_ville;
+    protected $Entreprises_ville;
 
     /**
      * @ORM\Column(type="string", length=13, nullable=true)
      */
-    private $Entreprises_telephone;
+    protected $Entreprises_telephone;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Entreprises_siret;
+    protected $Entreprises_siret;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Entreprises_description;
+    protected $Entreprises_description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Entreprises_horaires;
+    protected $Entreprises_horaires;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Entreprises_capacite;
+    protected $Entreprises_capacite;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $Entreprises_note;
+    protected $Entreprises_note;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $Entreprises_tarif;
+    protected $Entreprises_tarif;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $Entreprises_espace_exterieur;
+    protected $Entreprises_espace_exterieur;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Entreprises_status;
+    protected $Entreprises_status = 0;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Entreprises_date_creation;
+    protected $Entreprises_date_creation;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Entreprises_date_modif;
+    protected $Entreprises_date_modif;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reservations", mappedBy="Reservations_entreprises", orphanRemoval=true)
      */
-    private $Entreprises_reservations;
+    protected $Entreprises_reservations;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Avis_entreprises", orphanRemoval=true)
      */
-    private $Entreprises_Avis;
+    protected $Entreprises_Avis;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Bracelet", mappedBy="Bracelet_entreprises", orphanRemoval=true)
      */
-    private $Entreprises_Bracelet;
+    protected $Entreprises_Bracelet;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
 
     public function __construct()
     {
         $this->Entreprises_reservations = new ArrayCollection();
         $this->Entreprises_Avis = new ArrayCollection();
         $this->Entreprises_Bracelet = new ArrayCollection();
+        $this->Entreprises_token = bin2hex(random_bytes(10));
+        $this->Entreprises_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->Entreprises_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+
     }
 
     public function getId(): ?int
@@ -162,6 +177,16 @@ class Entreprises
         return $this;
     }
 
+    public function getUsername()
+    {
+        return $this->Entreprises_pseudo;
+    }
+
+    public function setUsername($Entreprises_pseudo)
+    {
+        $this->Entreprises_pseudo = $Entreprises_pseudo;
+    }
+
     public function getEntreprisesMail(): ?string
     {
         return $this->Entreprises_mail;
@@ -172,6 +197,15 @@ class Entreprises
         $this->Entreprises_mail = $Entreprises_mail;
 
         return $this;
+    }
+    public function getEmail()
+    {
+        return $this->Entreprises_mail;
+    }
+
+    public function setEmail($Entreprises_mail)
+    {
+        $this->Entreprises_mail = $Entreprises_mail;
     }
 
     public function getEntreprisesMdp(): ?string
@@ -184,6 +218,16 @@ class Entreprises
         $this->Entreprises_mdp = $Entreprises_mdp;
 
         return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->Entreprises_mdp;
+    }
+
+    public function setPassword($Entreprises_mdp)
+    {
+        $this->Entreprises_mdp = $Entreprises_mdp;
     }
 
     public function getEntreprisesToken(): ?string
@@ -208,6 +252,11 @@ class Entreprises
         $this->Entreprises_role = $Entreprises_role;
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return $this->Entreprises_role;
     }
 
     public function getEntreprisesNom(): ?string
@@ -400,6 +449,27 @@ class Entreprises
         $this->Entreprises_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
     }
 
     /**

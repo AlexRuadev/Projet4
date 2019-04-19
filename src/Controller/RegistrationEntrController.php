@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Heritage;
-use App\Form\RegistrationFormType;
+use App\Form\RegistrationEntrFormType;
 use App\Security\ConnexionFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,43 +17,21 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
-use App\Entity\Parents;
+use App\Entity\Entreprises;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-class RegistrationController extends AbstractController
+class RegistrationEntrController extends AbstractController
 {
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/registerentr", name="app_registerentr")
      */
-
-//    public function buildForm(FormBuilderInterface $builder, array $options)
-//    {
-//        $builder
-//            ->add('Parents_pseudo', TextType::class)
-//            ->add('plainPassword', RepeatedType::class, array(
-//                'type' => PasswordType::class,
-//                'first_options'  => array('label' => 'Password'),
-//                'second_options' => array('label' => 'Repeat Password'),
-//            ))
-//        ;
-//    }
-//
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//        $resolver->setDefaults(array(
-//            'data_class' => Heritage::class,
-//        ));
-//    }
-
-
-
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function registerentr(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         // 1) build the form
-        $user = new Parents();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $user = new Entreprises();
+        $form = $this->createForm(RegistrationEntrFormType::class, $user);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -69,6 +47,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+
+
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
@@ -76,9 +56,8 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render(
-            'registration/register.html.twig',
+            'registration_entr/register.html.twig',
             array('form' => $form->createView())
         );
     }
-
 }
