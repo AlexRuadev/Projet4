@@ -65,7 +65,10 @@ a:hover {
 }
 
 hr {
+	width: 20%;
 	margin: 5em auto;
+	background: transparent;
+	border-bottom: 1px solid rgba(255, 131, 96,1);
 }
 
 /*********************************************
