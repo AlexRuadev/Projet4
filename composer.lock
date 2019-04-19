@@ -2983,6 +2983,62 @@
             "time": "2019-01-26T10:32:20+00:00"
         },
         {
+            "name": "stripe/stripe-php",
+            "version": "v6.31.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "d14f02d603c47824d7acaf88491195e3f199408d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d14f02d603c47824d7acaf88491195e3f199408d",
+                "reference": "d14f02d603c47824d7acaf88491195e3f199408d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "1.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0",
+                "symfony/process": "~2.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2019-04-02T18:31:38+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.0",
             "source": {
@@ -6244,16 +6300,16 @@
         },
         {
             "name": "symfony/webpack-encore-bundle",
-            "version": "v1.2.2",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/webpack-encore-bundle.git",
-                "reference": "e23e9d32abd7fb62b84ad0ff62b235b517c61bc4"
+                "reference": "fc18456ed44737995f912c2084505fb67d040e11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/e23e9d32abd7fb62b84ad0ff62b235b517c61bc4",
-                "reference": "e23e9d32abd7fb62b84ad0ff62b235b517c61bc4",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/fc18456ed44737995f912c2084505fb67d040e11",
+                "reference": "fc18456ed44737995f912c2084505fb67d040e11",
                 "shasum": ""
             },
             "require": {
@@ -6294,7 +6350,7 @@
                 }
             ],
             "description": "Integration with your Symfony app & Webpack Encore!",
-            "time": "2019-03-04T15:09:28+00:00"
+            "time": "2019-03-29T14:09:53+00:00"
         },
         {
             "name": "symfony/yaml",
