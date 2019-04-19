@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Entreprises;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Entreprises|null find($id, $lockMode = null, $lockVersion = null)
  * @method Entreprises|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class EntreprisesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Entreprises::class);
     }
-
     // /**
     //  * @return Entreprises[] Returns an array of Entreprises objects
     //  */
@@ -35,7 +31,6 @@ class EntreprisesRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Entreprises
     {

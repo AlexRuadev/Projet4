@@ -3,12 +3,107 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.Parents_pseudo) }}
-    {{ form_row(form.Parents_mail) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+    <aside id="modal" class="modalregister" aria-hidden="true" role="note" aria-labelledby="titlemodal" style="display: none;">
+        <div class="modal-wrapper modal-js-stop">
+            <i class="modal-js-close fa fa-times"></i>
+            <h1 id="titlemodal">Why would a robot need to drink?</h1>
+            <p>No. We're on the top. No! Don't jump! Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? I videotape every customer that comes in here, so that I may blackmail them later.</p>
+            <p>As an interesting side note, as a head without a body, I envy the dead. Why would I want to know that? <strong> I love you, buddy!</strong> <em> Fry, you can't just sit here in the dark listening to classical music.</em> Throw her in the brig.</p>
+            <h2>You, a bobsleder!? That I'd like to see!</h2>
+            <p>No, of course not. It was… uh… porno. Yeah, that's it. And I'm his friend Jesus. Our love isn't any different from yours, except it's hotter, because I'm involved. Oh, I always feared he might run off like this. Why, why, why didn't I break his legs?</p>
+            <ol>
+                <li>Goodbye, friends. I never thought I'd die like this. But I always really hoped.</li><li>Yeah, and if you were the pope they'd be all, "Straighten your pope hat." And "Put on your good vestments."</li><li>I suppose I could part with 'one' and still be feared…</li>
+            </ol>
 
-    <button type="submit">Register!</button>
-    {{ form_end(form) }}
+            <h3>Ask her how her day was.</h3>
+            <p>Why yes! Thanks for noticing. Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat. In our darkest hour, we can stand erect, with proud upthrust bosoms.</p>
+            <ul>
+                <li>Wow! A superpowers drug you can just rub onto your skin? You'd think it would be something you'd have to freebase.</li><li>Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff!</li><li>For example, if you killed your grandfather, you'd cease to exist!</li>
+            </ul>
+
+            <p>Okay, it's 500 dollars, you have no choice of carrier, the battery can't hold the charge and the reception isn't very… There's no part of that sentence I didn't like! Kids have names? I never loved you.</p>
+            <p>I was having the most wonderful dream. Except you were there, and you were there, and you were there! Bender, this is Fry's decision… and he made it wrong. So it's time for us to interfere in his life.</p>
+            <p>But, like most politicians, he promised more than he could deliver. We'll go deliver this crate like professionals, and then we'll go home. Ugh, it's filthy! Why not create a National Endowment for Strip Clubs while we're at it?</p>
+            <p>It doesn't look so shiny to me. Dr. Zoidberg, that doesn't make sense. But, okay! What are their names? But I've never been to the moon!</p>
+            <p>Oh sure! Blame the wizards! Michelle, I don't regret this, but I both rue and lament it. Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff! Fry! Quit doing the right thing, you jerk!</p>
+            <p>Quite possible. We live long and are celebrated poopers. Check it out, y'all. Everyone who was invited is here. It must be wonderful. I'll get my kit! Oh, all right, I am. But if anything happens to me, tell them I died robbing some old man.</p>
+            <p>Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Aww, it's true. I've been hiding it for so long. You've killed me! Oh, you've killed me!</p>
+            <p>Calculon is gonna kill us and it's all everybody else's fault! Are you crazy? I can't swallow that. You know, I was God once. I've been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p>
+            <p>A sexy mistake. Tell them I hate them. I feel like I was mauled by Jesus. Oh, you're a dollar naughtier than most.</p>
+            <p>We don't have a brig. But I've never been to the moon! Ah, yes! John Quincy Adding Machine. He struck a chord with the voters when he pledged not to go on a killing spree. If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right.</p>
+            <p>I daresay that Fry has discovered the smelliest object in the known universe! Um, is this the boring, peaceful kind of taking to the streets? It's okay, Bender. I like cooking too. You've killed me! Oh, you've killed me!</p>
+        </div>
+    </aside>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire d'insription</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur">
+                        <div class="form-group">{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}</div>
+
+{#                    pour verifier le tableau#}
+{#                    {{ dump(form.plainPassword.first.vars) }}#}
+
+                    {% set class= '' %}
+                    {% if not form.Parents_pseudo.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group">
+                            <label for="{{ form.Parents_pseudo.vars.id }}">Pseudo</label>
+                            <input type="text" class="form-control {{ class }}" id="{{ form.Parents_pseudo.vars.id }}" name="{{ form.Parents_pseudo.vars.full_name }}" value="{{ form.Parents_pseudo.vars.value }}">
+                            {{  form_errors(form.Parents_pseudo) }}
+{#                            sert a passer le submitted en true.#}
+                            {% do form.Parents_pseudo.setRendered %}
+                        </div>
+
+                    {% set class= '' %}
+                    {% if not form.Parents_mail.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group">
+                            <label for="{{ form.Parents_mail.vars.id }}">Mail</label>
+                            <input type="email" class="form-control {{ class }}"  id="{{  form.Parents_mail.vars.id }}" name="{{ form.Parents_mail.vars.full_name }}" value="{{ form.Parents_mail.vars.value }}">
+                            {{  form_errors(form.Parents_mail) }}
+                            {% do form.Parents_mail.setRendered %}
+                        </div>
+
+                    {% set class= '' %}
+                    {% if not form.plainPassword.first.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group ">
+                            <label for="{{  form.plainPassword.first.vars.id }}">Mot de passe</label>
+                            <input type="password" class="form-control {{ class }}" id="{{  form.plainPassword.first.vars.id }}" name="{{  form.plainPassword.first.vars.full_name }}" value="{{ form.plainPassword.first.vars.value }}" >
+                            {{  form_errors(form.plainPassword.first) }}
+                            {% do form.plainPassword.first.setRendered %}
+                           </div>
+
+                    {% set class= '' %}
+                    {% if not form.plainPassword.second.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                    <div class="form-group ">
+                        <label for="{{  form.plainPassword.second.vars.id }}">Mot de passe</label>
+                        <input type="password" class="form-control {{ class }}" id="{{  form.plainPassword.second.vars.id }}" name="{{  form.plainPassword.second.vars.full_name }}" value="{{ form.plainPassword.second.vars.value }}" >
+                        {{  form_errors(form.plainPassword.second) }}
+                        {% do form.plainPassword.second.setRendered %}
+                    </div>
+
+                        <p class="conditions-g">J'ai lu et j'accepte les <a href="#modal" class="modal-js">Conditions générales d'utilisation</a></p>
+
+                        <button type="submit" class="btn button bouton-form">Je m'inscris</button>
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

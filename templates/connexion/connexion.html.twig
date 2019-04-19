@@ -1,3 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="content">
+    <div class="container">
+
 <form method="post" action="{{ path('connexion') }}" class="home-form">
     <h2 class="form-signin-heading">Connection</h2>
     <label for= »inputUserName » class= »sr-only »>Username</label>
@@ -10,3 +15,8 @@
     <input type= »hidden » name= »_target_path » value= »dashboard » />
     <button class= »btn btn-lg btn-primary btn-block » type= »submit »>Log In</button>
 </form>
+
+    </div>
+</div>
+
+{% endblock %}
