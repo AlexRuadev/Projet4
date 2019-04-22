@@ -2,47 +2,48 @@
 
 namespace App\Security;
 
-use App\Repository\ParentsRepository;
+use App\Repository\EntreprisesRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 
-class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
+class LoginEntrFormAuthenticator extends AbstractFormLoginAuthenticator
 {
-    private $parentsRepository;
+    private $entreprisesRepository;
     private $router;
     private $csrfTokenManager;
 
-    public function __construct(ParentsRepository $parentsRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager)
+    public function __construct(EntreprisesRepository $entreprisesRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager)
     {
-        $this->parentsRepository = $parentsRepository;
+
+        $this->entreprisesRepository = $entreprisesRepository;
         $this->router = $router;
         $this->csrfTokenManager = $csrfTokenManager;
     }
     public function supports(Request $request)
     {
         // do your work when we're POSTing to the login page
-        return $request->attributes->get('_route') === 'app_login'
+        return $request->attributes->get('_route') === 'app_loginentr'
             && $request->isMethod('POST');
     }
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'Parents_pseudo' => $request->request->get('Parents_pseudo'),
-            'Parents_mdp' => $request->request->get('Parents_mdp'),
+            'Entreprises_pseudo' => $request->request->get('Entreprises_pseudo'),
+            'Entreprises_mdp' => $request->request->get('Entreprises_mdp'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['Parents_pseudo']
+            $credentials['Entreprises_pseudo']
         );
 
         return $credentials;
@@ -53,11 +54,11 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
         if (!$this->csrfTokenManager->isTokenValid($token)) {
             throw new InvalidCsrfTokenException();
         }
-        return $this->parentsRepository->findOneBy(['Parents_pseudo' => $credentials['Parents_pseudo']]);
+        return $this->entreprisesRepository->findOneBy(['Entreprises_pseudo' => $credentials['Entreprises_pseudo']]);
     }
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['Parents_mdp'];
+        $password = $credentials['Entreprises_mdp'];
         if ($password == 'iliketurtles') {
             return true;
         }
@@ -69,12 +70,11 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     protected function getLoginUrl()
     {
-        return $this->router->generate('app_login');
+        return $this->router->generate('app_loginentr');
     }
 
     protected function getDefaultSuccessRedirectUrl()
     {
         return $this->router->generate('home');
     }
-
 }

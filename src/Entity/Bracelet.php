@@ -32,7 +32,7 @@ class Bracelet
     private $Bracelet_date_modif;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Enfants", inversedBy="Enfants_Bracelet", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Enfants", inversedBy="Enfants_Bracelet")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Bracelet_enfants;
@@ -42,6 +42,11 @@ class Bracelet
      * @ORM\JoinColumn(nullable=false)
      */
     private $Bracelet_entreprises;
+
+    public function __construct()
+    {
+        $this->Bracelet_date_creation = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+    }
 
     public function getId(): ?int
     {
@@ -79,7 +84,7 @@ class Bracelet
 
     public function setBraceletDateModif(?\DateTimeInterface $Bracelet_date_modif): self
     {
-        $this->Bracelet_date_modif = $Bracelet_date_modif;
+        $this->Bracelet_date_modif = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         return $this;
     }
@@ -107,4 +112,9 @@ class Bracelet
 
         return $this;
     }
+    public function __toString()
+    {
+        return  strval($this->id);
+    }
+
 }

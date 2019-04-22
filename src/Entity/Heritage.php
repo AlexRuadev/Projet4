@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @UniqueEntity(fields={"Parents_pseudo"}, message="There is already an account with this Parents_pseudo")
- * @ORM\Table(name="Parents")
+ * @ORM\Table(name="Heritage")
  * @ORM\Entity
  */
 class Heritage extends Parents
