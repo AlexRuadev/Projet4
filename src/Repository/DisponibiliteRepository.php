@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Disponibilite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Disponibilite|null find($id, $lockMode = null, $lockVersion = null)
  * @method Disponibilite|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class DisponibiliteRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Disponibilite::class);
     }
-
     // /**
     //  * @return Disponibilite[] Returns an array of Disponibilite objects
     //  */
@@ -35,7 +31,6 @@ class DisponibiliteRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Disponibilite
     {

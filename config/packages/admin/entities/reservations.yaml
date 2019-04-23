@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    Reservations:
+      disabled_actions: ['new']
+      class: App\Entity\Reservations
+      label: 'Reservations'
+      list:
+        title: 'Reservations'
+        fields:
+            - 'id'
+            - { property: 'Reservations_parents', type: 'string', label: 'Parents ID' }
+            - { property: 'Reservations_entreprises', type: 'string', label: 'Entreprises ID' }
+            - { property: 'Reservations_status', type: 'toggle', label: 'Status' }
+            - { property: 'Reservations_date_creation', type: 'datetime', label: 'Date de création' }
+            - { property: 'Reservations_date_modif', type: 'datetime', label: 'date de modification' }
+      edit:
+        title: 'Modification Enfants'
+        fields:
+          - { property: 'reservations_status', label: 'Status' , type: 'checkbox' , css_class: 'form-widget'}
+          - { property: 'reservations_date_modif', label: 'Date de modification' , type: 'date'}

@@ -1,24 +1,41 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        parents:
+            entity: { class: App\Entity\Parents, property: parents_pseudo}
+        entreprises:
+            entity: { class: App\Entity\Entreprises, property: entreprises_pseudo}
+
+
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
+        parents:
+            pattern: ^/parents/
             anonymous: true
-
-            # activate different ways to authenticate
-
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
+            provider: parents
+            guard:
+                authenticators:
+                    - App\Security\ConnexionFormAuthenticator
+            form_login:
+                login_path: /parents/login
+                check_path: /parents/login
+            logout:
+                path: app_logout
+        entreprises:
+            pattern: ^/entreprises/
+            anonymous: true
+            provider: entreprises
+            guard:
+                authenticators:
+                    - App\Security\LoginEntrFormAuthenticator
+            form_login:
+                login_path: /entreprises/loginentr
+                check_path: /entreprises/loginentr
+            logout:
+                path: app_logoutentr
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+    encoders:
+        App\Entity\Parents: bcrypt
+        App\Entity\Entreprises: bcrypt
+

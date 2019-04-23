@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block body %}
+    <div id="particulier"></div>
     <div class="content">
         <section id="content1-3" class="content1-3">
             <div class="container">
@@ -28,7 +29,7 @@
                             </p>
 
                             <div class="text-center">
-                                <a href="#" class="btn bouton button">M'inscrire</a>
+                                <a href="{{ path('app_register') }}" class="btn bouton button">M'inscrire</a>
                             </div>
                         </div>
                     </div>
@@ -39,16 +40,17 @@
             </div>
         </section>
 
+        <hr id="professionel">
 
         <section id="content1-4" class="content1-4">
             <div class="container">
-                <div class="row">
+                <div id="professionel" class="row">
                     <div class="col-md-5 image2">
                         <div></div>
                     </div>
                     <div class="col-md-7">
                         <div class="about-content">
-                            <h1 class="content-title">Vous êtes un professionnel ?</h1>
+                            <h1  class="content-title">Vous êtes un professionnel ?</h1>
                             <p class="content-text">Lorem ipsum dolor sit amet reprehenderit, enim eiusmod high life
                                 accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
                                 dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Haccusamus terry richardson ad
@@ -57,7 +59,7 @@
                                 ad squid.</p>
 
                             <div class="text-center">
-                                <a href="#" class="btn bouton button">M'inscrire</a>
+                                <a href="{{ path('app_registerentr') }}" class="btn bouton button">M'inscrire</a>
                             </div>
                         </div>
                     </div>

@@ -2,16 +2,29 @@
 
 namespace App\Controller;
 
+use App\Entity\Entreprises;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EntreprisesController extends AbstractController
 {
     /**
-     * @Route("/profil-entreprise", name="entreprises")
+     * @Route("/profil-entreprise/{id}", name="entreprises")
      */
-    public function index()
+    public function index($id)
     {
+	    $entreprise =  $this->getDoctrine()
+		    ->getRepository(Entreprises::class)
+		    ->find($id);
+
+	    if(empty($entreprise)){
+		    $this->redirect('404');
+	    }
+
+	    if($entreprise->getEntreprisesStatus() === FALSE){
+	    	$this->redirect('404');
+	    }
+
 
 
         $data = array(
@@ -32,11 +45,9 @@ class EntreprisesController extends AbstractController
         $json_data = json_decode($geopos, true);
 
         return $this->render('entreprises/profil_entreprise.html.twig', [
-            'controller_name' => 'EntreprisesController',
-            'lat' => $json_data[0]['lat'],
-            'lon' => $json_data[0]['lon']
-
+            'entreprise' => $entreprise,
+	        'lat' => $json_data[0]['lat'],
+	        'lon' => $json_data[0]['lon']
         ]);
     }
-
 }
