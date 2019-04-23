@@ -14,19 +14,23 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class LoginEntrFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     private $entreprisesRepository;
     private $router;
     private $csrfTokenManager;
+    private $passwordEncoder;
 
-    public function __construct(EntreprisesRepository $entreprisesRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager)
+
+    public function __construct(EntreprisesRepository $entreprisesRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
 
         $this->entreprisesRepository = $entreprisesRepository;
         $this->router = $router;
         $this->csrfTokenManager = $csrfTokenManager;
+        $this->passwordEncoder = $passwordEncoder;
     }
     public function supports(Request $request)
     {
@@ -58,15 +62,11 @@ class LoginEntrFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['Entreprises_mdp'];
-        if ($password == 'iliketurtles') {
-            return true;
-        }
-        return false;
+        return $this->passwordEncoder->isPasswordValid($user, $credentials['Entreprises_mdp']);
     }
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        return new RedirectResponse($this->router->generate('home'));
+        return new RedirectResponse($this->router->generate('profil-entreprise'));
     }
     protected function getLoginUrl()
     {
