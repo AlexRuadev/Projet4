@@ -110,27 +110,14 @@ var style = {
 };
 
 // Create an instance of the card Element.
-var card = elements.create("cardNumber", {
-    style: {
-      base: {
-        color: "#32325D",
-        fontWeight: 500,
-        fontFamily: "Inter UI, Open Sans, Segoe UI, sans-serif",
-        fontSize: "16px",
-        fontSmoothing: "antialiased",
-
-        "::placeholder": {
-          color: "#CFD7DF"
-        }
-      },
-      invalid: {
-        color: "#E25950"
-      }
-    }
-  });
+var card = elements.create('cardNumber', {
+  classes : {
+    base : "form-control"
+  }
+});
 
 // Add an instance of the card Element into the `card-element` <div>.
-card.mount('#card-element');
+card.mount('#card-number');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {

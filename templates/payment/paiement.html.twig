@@ -2,46 +2,31 @@
 
 {% block body %}
 
-    <div class="content">
-        <div class="container">
+    <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="titre-form-largeur">
-                        <h2>Paiement de votre réservation du $dateResa</h2>
-                    </div>
-                </div>
-            </div>
+                <div class="col-md-6 col-sm-offset-3">
 
-            <div class="row">
-                <div class="col">
-                    {#                    <div class="form-largeur">#}
-                    <div class="form-group">
-                        <form method="post" id="payment-form">
-                            <div class="row paiement-largeur">
-                                <div class="col-3">
-                                    <label for="card-element">
+                        <h2>Paiement de votre réservation du $dateResa</h2>
+                                <form action="/charge" method="post" id="payment-form">
+
+                                <div class="form-group">
+                                      <label for="card-name">Card Name</label>
+                                      <input type="text" name="card-name" class="form-control" id="card-name" placeholder="Card Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="card-number">
                                         Carte de crédit
                                     </label>
-                                </div>
-                                <div class="col-9">
-                                    <div class="form-control" id="card-element">
+                                    <div id="card-number">
                                         <!-- A Stripe Element will be inserted here. -->
                                     </div>
-                                </div>
+
                                 <!-- Used to display form errors. -->
                                 <div id="card-errors" role="alert"></div>
-                                <div class="col">
-                                    <button type="submit" class="btn button bouton-form">Payer $montantResa</button>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    </div>
-    </div>
+                                    <button>Payer $montantResa</button>
+                                </form>
+                               </div>
+                                 </div>
 {% endblock %}
-
