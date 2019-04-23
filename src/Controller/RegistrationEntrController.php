@@ -25,7 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class RegistrationEntrController extends AbstractController
 {
     /**
-     * @Route("/registerentr", name="app_registerentr")
+     * @Route("/entreprises/registerentr", name="app_registerentr")
      */
     public function registerentr(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -39,8 +39,11 @@ class RegistrationEntrController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
-            $user->setEntreprisesMdp($password);
+
+            $password = $passwordEncoder->encodePassword($user, $user->getEntreprisesMdp());
+            $user->setPassword($password);
+
+
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
