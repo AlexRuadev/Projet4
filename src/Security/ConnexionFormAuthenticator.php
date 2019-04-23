@@ -64,7 +64,7 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        return new RedirectResponse($this->router->generate('profil-parent'));
+        return new RedirectResponse($this->router->generate('parents'));
     }
     protected function getLoginUrl()
     {
