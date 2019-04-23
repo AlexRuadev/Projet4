@@ -568,4 +568,5 @@ class Entreprises implements UserInterface
     {
         return  $this->Entreprises_nom . ' ['.strval($this->id) . '] ';
     }
+
 }
