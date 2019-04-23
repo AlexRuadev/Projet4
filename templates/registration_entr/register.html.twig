@@ -3,7 +3,28 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire de souscription</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur">
+                        <div class="form-group">
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{ form_row(form.Entreprises_pseudo) }}
     {{ form_row(form.Entreprises_mail) }}
     {{ form_row(form.plainPassword.first) }}
