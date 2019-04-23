@@ -16,6 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class Entreprises implements UserInterface
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -46,7 +47,7 @@ class Entreprises implements UserInterface
     /**
      * @ORM\Column(type="array")
      */
-    protected $Entreprises_role = [];
+    protected $Entreprises_role = ["creche", "nourrice"];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)

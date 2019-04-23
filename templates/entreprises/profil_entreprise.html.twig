@@ -7,7 +7,7 @@
             <div class="case case-entreprise">
                 <div class="row">
                     <div class="col">
-                        <h3>Mon profil:</h3>
+                        <h3>{{ entreprise.entreprisesNom }}</h3>
                     </div>
                 </div>
                 <div class="row row-image-entreprise espacement-ligne-entreprise">
@@ -30,19 +30,15 @@
                 </div>
                 <div class="row espacement-ligne">
                     <div class="col">
-                        <p>Il reste encore <span class="green">*</span> places chez ce professionel dans les 7 prochains jours</p>
+                        <p>Il reste encore <span class="green">{{ entreprise.entreprisesCapacite }}</span> places chez ce professionel dans les 7 prochains jours</p>
                         <a class="lienplanning" href="">Voir le calendrier des disponibilités</a>
                     </div>
                 </div>
                 <div class="row espacement-ligne alignement-gauche">
                     <div class="col">
-                        <h3>Garderie de l'année</h3>
                         <div class="alignement-gauche">
                             <p>
-                                Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Aperiam aut cumque delectus dolor, ea eos, est exercitationem molestiae necessitatibus
-                                nostrum officiis quibusdam quo, repellat tempora voluptatum! Aliquid pariatur sapiente
-                                ullam?
+                                Description: {{ entreprise.entreprisesDescription }}
                             </p>
                         </div>
                     </div>
@@ -54,17 +50,16 @@
                 </div>
                 <div class="row">
                     <div class="col-6 espacement-ligne alignement-gauche">
-                        <p><span>Localisation: </span> Seine-Maritime</p>
-                        <p><span>Adresse postale: </span>26 rue de ouais ouais salut 76000 Rouen</p>
-                        <p><span>Horaires: </span>8h - 18h</p>
-                        <p><span>Espace extérieur: </span>Oui</p>
-                        <p><span>Capacité d'accueil: </span>30 enfants</p>
-                        <p><span>Effectif de l'entreprise: </span>10 employés</p>
+                        <p><span>Adresse postale: </span>{{ entreprise.entreprisesAdresse }} {{ entreprise.entreprisesCp }} {{ entreprise.entreprisesVille }}</p>
+                        <p><span>Horaires: </span>{{ entreprise.entreprisesHoraires }}</p>
+                        <p><span>Espace extérieur: </span>{{ entreprise.entreprisesEspaceExterieur }}</p>
+                        <p><span>Capacité d'accueil: </span>{{ entreprise.entreprisesCapacite }} enfants</p>
+                        <p><span>Effectif de l'entreprise: </span>{{ entreprise.entreprisesEffectifs }} employés</p>
                         <p><span>Périodes de fermeture: </span>???</p>
-                        <p><span>Tarif: </span>100€ /jour</p>
-                        <p><span>Numéro de siret: </span>82451113300012</p>
+                        <p><span>Tarif: </span>{{ entreprise.entreprisesTarif }} /jour</p>
+                        <p><span>Numéro de siret: </span>{{ entreprise.entreprisesSiret }}</p>
 
-                        <p><span>Réseaux sociaux: </span>des liens avec les logos</p>
+                        {#<p><span>Réseaux sociaux: </span>des liens avec les logos</p>#}
                     </div>
                     <div class="col-6">
 
