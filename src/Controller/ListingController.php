@@ -14,20 +14,16 @@ class ListingController extends AbstractController
     public function index()
     {
 
-    	$id = 2;
     	$entreprises =  $this->getDoctrine()
-		    ->getRepository(Entreprises::class)
-		    ->find($id);
+		    ->getRepository(Entreprises::class);
 
-	    if (!$entreprises) {
-		    throw $this->createNotFoundException(
-			    'No product found for id '. $id
-		    );
-	    }
+    	$listeEntreprises = $entreprises->findBy(
+			['Entreprises_status' => 1]
+	    );
 
 
         return $this->render('listing/listing.html.twig', [
-            'entreprises' => $entreprises,
+            'entreprises' => $listeEntreprises,
         ]);
     }
 }

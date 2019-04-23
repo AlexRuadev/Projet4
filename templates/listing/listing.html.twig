@@ -37,7 +37,8 @@
 
         <div class="container">
 
-            <a href="">
+            {% for i in entreprises %}
+            <a href="{{ path('entreprises', {'id': i.id}) }}">
                 <div class="row case">
                     <div class="col-md-3">
                         <div class="images">
@@ -45,9 +46,9 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h3 class="title">{{ entreprises.entreprisesNom }}</h3>
-                        <p>Code postal: 76000</p>
-                        <p>Capacité d'accueil</p>
+                        <h3 class="title">{{ i.entreprisesNom }}</h3>
+                        <p>Code postal: {{ i.entreprisesCp }}</p>
+                        <p>Capacité d'accueil: {{ i.entreprisesCapacite }}</p>
                         <p>Rôle (établissement, indépendant,...)</p>
                     </div>
                     <div class="col-md-1">
@@ -56,33 +57,13 @@
                                 <div class="dispo"></div>
                             </div>
                             <div class="col">
-                                <div class="note">5/5</div>
+                                <div class="note">{{ i.entreprisesNote }}/5</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </a>
-
-            <a>
-                <div class="row case">
-                    <div class="col-md-3">
-                        <div class="images">
-
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <h3 class="title">Titre</h3>
-                        <p>Code postal: 76000</p>
-                        <p>Capacité d'accueil</p>
-                        <p>Rôle (établissement, indépendant,...)</p>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="dispo">
-
-                        </div>
-                    </div>
-                </div>
-            </a>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
