@@ -189,15 +189,17 @@ function stripeTokenHandler(token) {
     //Mapping
 
 
+    {% if lat is defined %}
 
     var mymap = L.map('mapid',
         {
-            center : [{{ lat }}, {{ lon }}],
-            zoom : 15});
+            center: [{{ lat }}, {{ lon }}],
+            zoom: 15
+        });
 
     var marker = L.marker([{{ lat }}, {{ lon }}]).addTo(mymap);
 
-    marker.bindPopup("Adresse de la crèche").openPopup();
+    marker.bindPopup("{{ nom }}").openPopup();
 
     var popup = L.popup();
 
@@ -207,6 +209,7 @@ function stripeTokenHandler(token) {
             .setContent("Mon adresse")
             .openOn(mymap);
     }
+
     mymap.on('click', onMapClick);
 
     console.log(popup);
@@ -218,14 +221,12 @@ function stripeTokenHandler(token) {
     }).addTo(mymap);
 
     L.Control.geocoder({
-       placeholder: "Rechercher",
-        showResultIcons: true,
+            placeholder: "Rechercher",
+            showResultIcons: true,
         }
     ).addTo(mymap);
 
-
-
-
+    {% endif %}
 
 </script>
 <script>

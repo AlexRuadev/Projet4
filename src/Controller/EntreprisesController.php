@@ -25,12 +25,12 @@ class EntreprisesController extends AbstractController
 	    	$this->redirect('404');
 	    }
 
-
+		$nom = $entreprise->getEntreprisesNom();
 
         $data = array(
-            'street'     => '3 rue des forgettes',
-            'postalcode' => '76000',
-            'city'       => 'Rouen',
+            'street'     => $entreprise->getEntreprisesAdresse(),
+            'postalcode' => $entreprise->getEntreprisesCp(),
+            'city'       => $entreprise->getEntreprisesVille(),
             'country'    => 'france',
             'format'     => 'json',
         );
@@ -47,7 +47,8 @@ class EntreprisesController extends AbstractController
         return $this->render('entreprises/profil_entreprise.html.twig', [
             'entreprise' => $entreprise,
 	        'lat' => $json_data[0]['lat'],
-	        'lon' => $json_data[0]['lon']
+	        'lon' => $json_data[0]['lon'],
+	        'nom' => $nom
         ]);
     }
 }
