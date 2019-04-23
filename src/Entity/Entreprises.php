@@ -143,12 +143,6 @@ class Entreprises implements UserInterface
      */
     protected $Entreprises_Bracelet;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
-     */
-    protected $plainPassword;
-
     public function __construct()
     {
         $this->Entreprises_reservations = new ArrayCollection();
@@ -175,16 +169,6 @@ class Entreprises implements UserInterface
         $this->Entreprises_pseudo = $Entreprises_pseudo;
 
         return $this;
-    }
-
-    public function getUsername()
-    {
-        return $this->Entreprises_pseudo;
-    }
-
-    public function setUsername($Entreprises_pseudo)
-    {
-        $this->Entreprises_pseudo = $Entreprises_pseudo;
     }
 
     public function getEntreprisesMail(): ?string
@@ -218,16 +202,6 @@ class Entreprises implements UserInterface
         $this->Entreprises_mdp = $Entreprises_mdp;
 
         return $this;
-    }
-
-    public function getPassword()
-    {
-        return $this->Entreprises_mdp;
-    }
-
-    public function setPassword($Entreprises_mdp)
-    {
-        $this->Entreprises_mdp = $Entreprises_mdp;
     }
 
     public function getEntreprisesToken(): ?string
@@ -451,14 +425,14 @@ class Entreprises implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword()
+    public function getUsername()
     {
-        return $this->plainPassword;
+        return $this->Entreprises_pseudo;
     }
 
-    public function setPlainPassword($password)
+    public function getPassword()
     {
-        $this->plainPassword = $password;
+        return $this->Entreprises_mdp;
     }
 
     public function eraseCredentials()

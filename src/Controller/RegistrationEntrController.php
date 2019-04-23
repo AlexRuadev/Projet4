@@ -39,8 +39,8 @@ class RegistrationEntrController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setEntreprisesMdp($password);
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();

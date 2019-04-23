@@ -24,7 +24,7 @@ class RegistrationEntrFormType extends AbstractType
         $builder
             ->add('Entreprises_pseudo')
             ->add('Entreprises_mail', EmailType::class)
-            ->add('plainPassword', RepeatedType::class, array(
+            ->add('Entreprises_mdp', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
