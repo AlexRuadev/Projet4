@@ -25,7 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/parents/register", name="app_register")
+     * @Route("/register", name="app_register")
      */
 
 //    public function buildForm(FormBuilderInterface $builder, array $options)
@@ -61,8 +61,9 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setParentsMdp($password);
+
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();

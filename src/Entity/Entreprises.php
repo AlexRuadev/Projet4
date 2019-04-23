@@ -430,7 +430,6 @@ class Entreprises implements UserInterface
     {
         return $this->Entreprises_pseudo;
     }
-
     public function getPassword()
     {
         return $this->Entreprises_mdp;
