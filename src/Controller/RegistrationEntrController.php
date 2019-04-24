@@ -41,7 +41,7 @@ class RegistrationEntrController extends AbstractController
             // 3) Encode the password (you could also do this via Doctrine listener)
 
             $password = $passwordEncoder->encodePassword($user, $user->getEntreprisesMdp());
-            $user->setPassword($password);
+            $user->setEntreprisesMdp($password);
 
 
 
