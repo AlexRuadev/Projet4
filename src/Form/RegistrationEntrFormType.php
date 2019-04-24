@@ -6,6 +6,7 @@ use App\Entity\Entreprises;
 use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -101,8 +102,8 @@ class RegistrationEntrFormType extends AbstractType
                     ])
                 ]
             ])
-            ->add('Entreprises_siret', IntegerType::class, [
-                'attr' => array('placeholder' => 'Email'),
+            ->add('Entreprises_siret', TextType::class, [
+                'attr' => array('placeholder' => 'Numéro de siret'),
                 'label' => false,
                 'constraints' => [
                     new NotBlank([
@@ -124,7 +125,7 @@ class RegistrationEntrFormType extends AbstractType
                     ])
                 ]
             ])
-            ->add('Entreprises_horaires', TextType::class, [
+            ->add('Entreprises_horaires', TextareaType::class, [
                 'attr' => array('placeholder' => 'horaires'),
                 'label' => false,
                 'constraints' => [
@@ -134,7 +135,7 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_capacite', IntegerType::class, [
-                'attr' => array('placeholder' => 'Email'),
+                'attr' => array('placeholder' => 'Capacité'),
                 'label' => false,
                 'constraints' => [
                     new NotBlank([
