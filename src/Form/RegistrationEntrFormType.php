@@ -24,13 +24,18 @@ class RegistrationEntrFormType extends AbstractType
     {
         $builder
             ->add('Entreprises_pseudo', TextType::class, [
+                'label' => false,
+                'attr' => array('placeholder' => 'Pseudo'),
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un pseudo'
                     ])
+
                 ]
             ])
             ->add('Entreprises_mail', EmailType::class, [
+                'label' => false,
+                'attr' => array('placeholder' => 'Email'),
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un mail'
@@ -38,12 +43,13 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('EntreprisesMdp', RepeatedType::class, array(
-
                 'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Repeat Password'),
+                'first_options'  => array('label' => false ,'attr' => array('placeholder' => 'Mot de passe')),
+                'second_options' => array('label' => false ,'attr' => array('placeholder' => 'Confirmation')),
             ))
             ->add('Entreprises_nom', TextType::class,[
+                'attr' => array('placeholder' => 'Nom'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un nom'
@@ -51,6 +57,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_effectifs', IntegerType::class, [
+                'attr' => array('placeholder' => 'Effectifs'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner votre effectif'
@@ -58,6 +66,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_adresse', TextType::class, [
+                'attr' => array('placeholder' => 'Adresse'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner une adresse'
@@ -65,6 +75,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_cp', IntegerType::class, [
+                'attr' => array('placeholder' => 'Code postal'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner votre Code Postal'
@@ -72,6 +84,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_ville', TextType::class, [
+                'attr' => array('placeholder' => 'Ville'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner une ville'
@@ -79,6 +93,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_telephone', TextType::class, [
+                'attr' => array('placeholder' => 'Telephone'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un telephone'
@@ -86,6 +102,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_siret', IntegerType::class, [
+                'attr' => array('placeholder' => 'Email'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un numéro de Siret'
@@ -98,6 +116,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_description', TextType::class, [
+                'attr' => array('placeholder' => 'Description'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner une description'
@@ -105,6 +125,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_horaires', TextType::class, [
+                'attr' => array('placeholder' => 'horaires'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner vos horaires'
@@ -112,6 +134,8 @@ class RegistrationEntrFormType extends AbstractType
                 ]
             ])
             ->add('Entreprises_capacite', IntegerType::class, [
+                'attr' => array('placeholder' => 'Email'),
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner votre capacité'
