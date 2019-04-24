@@ -250,3 +250,19 @@ footer h5 {
 .underline {
 	text-decoration: underline;
 }
+
+/*********************************************
+//				CALENDRIER
+*********************************************/
+
+.calendrier_table {
+	width: 100%;
+	height: 75vh;
+}
+
+.calendrier_table td {
+	padding: 10px;
+	border: 1px solid gray;
+	width: 14.29%;
+	height: 20%;
+}

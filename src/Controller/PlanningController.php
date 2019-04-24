@@ -9,6 +9,8 @@ use App\Entity\Disponibilite;
 
 class PlanningController extends AbstractController
 {
+    public $jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
     private $months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
     private $month;
@@ -16,7 +18,7 @@ class PlanningController extends AbstractController
     private $year;
 
     /**
-     * @Route("/planning/month/{month}", name="planning")
+     * @Route("/planning/{month}", name="planning")
      */
     public function index(Request $request, $month)
     {
@@ -24,9 +26,14 @@ class PlanningController extends AbstractController
         /*dump($request->query->get('month'));*/
         dump($month);
 
+        $mois = $this->moisPlanning($month, date('Y'));
+        $jours = $this->jourDebut()->modify('last monday');
+
         return $this->render('planning/planning.html.twig', [
-            'date' => $this->moisPlanning($month, date('Y')),
-            'nbsemaines' => $this->nbSemaines()
+            'date' => $mois,
+            'nbsemaines' => $this->nbSemaines(),
+            'jours' => $jours->format('d'),
+            'jourssemaines' => $this->jours
         ]);
     }
 
@@ -60,12 +67,21 @@ class PlanningController extends AbstractController
      * @throws
      */
     public function nbSemaines(){
-        $debutMois = new \DateTime("$this->year-$this->month-01");
+        $debutMois = $this->jourDebut();
         $finMois = (clone $debutMois)->modify("+1 month -1 day");
         $semaines = intval($finMois->format('W')) - intval($debutMois->format('W')) + 1;
         if ($semaines < 0) {
             $semaines = intval($finMois->format('W'));
         }
         return $semaines;
+    }
+
+    /**
+     * renvoie le premier jour du mois
+     * @return \DateTime
+     * @throws
+     */
+    public function jourDebut(): \DateTime {
+        return new \DateTime("$this->year-$this->month-01");
     }
 }
