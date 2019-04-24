@@ -64,6 +64,8 @@ class EnfantsController extends AbstractController
 
 
 
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($enfant);
             $entityManager->flush();
