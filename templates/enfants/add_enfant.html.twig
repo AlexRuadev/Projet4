@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout Enfant{% endblock %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire d'ajour d'enfants</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur-souscription">
+                        <div class="form-group">
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Enfants_prenom) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Enfants_nom) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Enfants_date_de_naissance) }}
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn button bouton-form" type="submit">Ajoutez!</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
