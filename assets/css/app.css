@@ -301,6 +301,19 @@ footer h5 {
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 2px 2px 5px rgba(255, 131, 96,0.7);
 	top: 50%;
+
+}
+
+.form-largeur-souscription {
+	width: 43%;
+	margin: 5% auto 5% auto;
+	padding: 40px;
+	border: 2px solid rgba(255, 131, 96,1);
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 2px 2px 5px rgba(255, 131, 96,0.7);
+	top: 50%;
+
 }
 
 .paiement-largeur {
