@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use App\Entity\Enfants;
+use App\Entity\Parents;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,12 +26,16 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class EnfantsController extends AbstractController
 {
     /**
-     * @Route("/profil-enfant", name="enfants")
+     * @Route("/profil-enfant/{id}", name="enfant")
      */
-    public function index()
+    public function index($id)
     {
+        $enfants =  $this->getDoctrine()
+            ->getRepository(Enfants::class)
+            ->find($id);
         return $this->render('enfants/profil_enfant.html.twig', [
             'controller_name' => 'EnfantsController',
+            'enfant' => $enfants,
         ]);
     }
 
@@ -38,7 +43,7 @@ class EnfantsController extends AbstractController
      * @Route("/addenfant", name="enfants")
      */
 
-    public function addenfant(Request $request)
+    public function addenfant(Request $request, Parents $parents)
     {
         $enfant = new Enfants();
         $form = $this->createForm(AddEnfantsFormType::class, $enfant);
@@ -62,8 +67,7 @@ class EnfantsController extends AbstractController
             $datecreation = new \DateTime();
             $enfant->setEnfantsDateCreation($datecreation);
 
-
-
+            $enfant->setEnfantsParents($parents);
 
 
             $entityManager = $this->getDoctrine()->getManager();
