@@ -25,7 +25,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/parents/register", name="app_register")
+     * @Route("/register", name="app_register")
      */
 
 //    public function buildForm(FormBuilderInterface $builder, array $options)
