@@ -27,7 +27,7 @@ class RegistrationEntrController extends AbstractController
     /**
      * @Route("/entreprises/registerentr", name="app_registerentr")
      */
-    public function registerentr(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function registerentr(Request $request, UserPasswordEncoderInterface $passwordEncoder , \Swift_Mailer $mailer)
     {
         // 1) build the form
         $user = new Entreprises();
@@ -44,13 +44,35 @@ class RegistrationEntrController extends AbstractController
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setEntreprisesMdp($password);
 
-
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            ;
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('kidsery76@gmail.com')
+                ->setTo('kidsery76@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'registration_entr/registration.html.twig',
+                        ['name' => $user->getEntreprisesPseudo()]
+                    ),
+                    'text/html'
+                )
+                /*
+                 * If you also want to include a plaintext version of the message
+                ->addPart(
+                    $this->renderView(
+                        'emails/registration.txt.twig',
+                        ['name' => $name]
+                    ),
+                    'text/plain'
+                )
+                */
+            ;
 
-
+            $mailer->send($message);
 
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
