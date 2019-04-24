@@ -49,15 +49,25 @@ class RegistrationEntrController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             ;
-            $message = (new \Swift_Message('Hello Email'))
+            $message = (new \Swift_Message('Demande de souscription'))
                 ->setFrom('kidsery76@gmail.com')
                 ->setTo('kidsery76@gmail.com')
                 ->setBody(
                     $this->renderView(
                     // templates/emails/registration.html.twig
-                        'registration_entr/registration.html.twig',
-                        ['name' => $user->getEntreprisesPseudo()]
-                    ),
+                        'registration_entr/registration.html.twig',[
+                        'name' => $user->getEntreprisesPseudo(),
+                        'nom' => $user->getEntreprisesNom(),
+                        'effectifs' => $user->getEntreprisesEffectifs(),
+                        'adresse' => $user->getEntreprisesAdresse(),
+                        'cp' => $user->getEntreprisesCp(),
+                        'ville' => $user->getEntreprisesVille(),
+                        'telephone' => $user->getEntreprisesTelephone(),
+                        'siret' => $user->getEntreprisesSiret(),
+                        'description' => $user->getEntreprisesDescription(),
+                        'horaires' => $user->getEntreprisesHoraires(),
+                        'capacite' => $user->getEntreprisesCapacite(),
+            ]),
                     'text/html'
                 )
                 /*
