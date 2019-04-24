@@ -25,14 +25,13 @@ class PaymentController extends AbstractController
         \Stripe\Stripe::setApiKey("sk_test_0KnOrKNN7Nf9d7l6pyRkNZgd00FP5Aqi59");
 
         \Stripe\Charge::create([
-            "amount" => 5000, // le montant en centimes
+            "amount" => 2000, // le montant en centimes
             "currency" => "eur", // la monnaie
             "source" => "tok_amex", // obtained with Stripe.js
             "description" => "TEST PAIEMENT", // description sur le paiement et contenu du mail recu a l'utilisateur
-
 //          "customer"=> "cus_AJ6rlf2taOsyXj", // ID du client qui envoie le paiement
-//            "on_behalf_of" => null, // le compte stripe de l'entreprise qui recoit le paiement
-//            "receipt_email" => "mailutilisateur@gmail.com" // recu du paiement au mail du client
+//          "on_behalf_of" => null, // le compte stripe de l'entreprise qui recoit le paiement
+//          "receipt_email" => "mailutilisateur@gmail.com" // recu du paiement au mail du client
         ]);
 
         return $this->render('payment/paiement.html.twig', [
