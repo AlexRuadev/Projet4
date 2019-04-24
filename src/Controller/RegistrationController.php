@@ -64,6 +64,7 @@ class RegistrationController extends AbstractController
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setParentsMdp($password);
 
+
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
