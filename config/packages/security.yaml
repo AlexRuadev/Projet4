@@ -1,37 +1,54 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
+        chain_provider:
+            chain:
+                providers: [ parents, entreprises ]
         parents:
             entity: { class: App\Entity\Parents, property: parents_pseudo}
         entreprises:
             entity: { class: App\Entity\Entreprises, property: entreprises_pseudo}
 
-
     firewalls:
-        parents:
-            pattern: ^/parents/
+        parentt:
             anonymous: true
-            provider: parents
+            provider: chain_provider
             guard:
                 authenticators:
-                    - App\Security\ConnexionFormAuthenticator
-            form_login:
-                login_path: /parents/login
-                check_path: /parents/login
+                - App\Security\ConnexionFormAuthenticator
+                - App\Security\LoginEntrFormAuthenticator
+                entry_point: App\Security\LoginFormAuthenticator
+            access_denied_url: /
             logout:
-                path: app_logout
-        entreprises:
-            pattern: ^/entreprises/
-            anonymous: true
-            provider: entreprises
-            guard:
-                authenticators:
-                    - App\Security\LoginEntrFormAuthenticator
-            form_login:
-                login_path: /entreprises/loginentr
-                check_path: /entreprises/loginentr
-            logout:
-                path: app_logoutentr
+                path: /logout
+                target: /
+
+
+#    firewalls:
+#        parents:
+#            pattern: ^/parents/
+#            anonymous: true
+#            provider: parents
+#            guard:
+#                authenticators:
+#                    - App\Security\ConnexionFormAuthenticator
+#            form_login:
+#                login_path: /parents/login
+#                check_path: /parents/login
+#            logout:
+#                path: app_logout
+#        entreprises:
+#            pattern: ^/entreprises/
+#            anonymous: true
+#            provider: entreprises
+#            guard:
+#                authenticators:
+#                    - App\Security\LoginEntrFormAuthenticator
+#            form_login:
+#                login_path: /entreprises/loginentr
+#                check_path: /entreprises/loginentr
+#            logout:
+#                path: app_logoutentr
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
