@@ -18,6 +18,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class RegistrationEntrFormType extends AbstractType
 {
@@ -142,6 +143,13 @@ class RegistrationEntrFormType extends AbstractType
                         'message' => 'Merci de renseigner votre capacité'
                     ])
                 ]
+            ])
+            ->add('checkbox', CheckboxType::class, [
+                'label'    => 'Jai lu et jaccepte les Conditions générales dutilisation',
+                'mapped' => false,
+                'constraints'=> new NotBlank([
+                    'message' => 'Merci de cocher cette case'
+                ])
             ])
         ;
     }

@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="content">
+        <div class="container">
+            <div class="case case-parent cote-enfant">
+                <div class="row">
+
+                </div>
+                <div class="row">
+                    <div class="col logo-enfant">
+                        <i class="fas fa-baby fa-3x"></i>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <p>{{ enfant.enfantsPrenom }} est né le {{ enfant.enfantsDateDeNaissance|date('d-m-Y') }}</p>
+                    </div>
+                </div>
+
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <h3>Informations complémentaires:</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 espacement-ligne alignement-gauche">
+                        <p><span>Régime alimentaire: </span>Pas de Halouf</p>
+                        <p><span>Traitement médical: </span>Paranal 2mg</p>
+                        <p><span>Allergies connues: </span>A la sucette du père Lachaise</p>
+                        <p><span>Handicap: </span>Trize</p>
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

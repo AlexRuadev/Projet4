@@ -144,6 +144,7 @@ class Entreprises implements UserInterface
      */
     protected $Entreprises_Bracelet;
 
+
     public function __construct()
     {
         $this->Entreprises_reservations = new ArrayCollection();

@@ -18,10 +18,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use App\Entity\Enfants;
 use App\Entity\Parents;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use App\Entity\Medical;
 
 class EnfantsController extends AbstractController
 {
@@ -40,10 +37,10 @@ class EnfantsController extends AbstractController
     }
 
     /**
-     * @Route("/addenfant", name="enfants")
+     * @Route("/addenfant/{id}", name="enfants")
      */
 
-    public function addenfant(Request $request, Parents $parents)
+    public function addenfant(Request $request, Parents $parents, $id)
     {
         $enfant = new Enfants();
         $form = $this->createForm(AddEnfantsFormType::class, $enfant);
@@ -73,6 +70,8 @@ class EnfantsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($enfant);
             $entityManager->flush();
+
+
 
             return $this->render('accueil.html.twig');
         }

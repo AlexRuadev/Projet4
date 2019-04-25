@@ -95,6 +95,8 @@
                         {{  form_errors(form.Parents_mdp.second) }}
                         {% do form.Parents_mdp.second.setRendered %}
                     </div>
+                        {{ form_widget(form.checkbox) }}
+                        {{ form_errors(form.checkbox) }}
 
                         <p class="conditions-g">J'ai lu et j'accepte les <a href="#modal" class="modal-js">Conditions générales d'utilisation</a></p>
 

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout Enfant{% endblock %}
+{% block title %}Ajout du dossier médical{% endblock %}
 
 {% block body %}
 
@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col">
                     <div class="titre-form-largeur">
-                        <h2>Inscription de votre enfant</h2>
+                        <h2>Veuillez renseigner quelques informations médical</h2>
                     </div>
                 </div>
             </div>
@@ -20,16 +20,16 @@
                             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.Enfants_prenom) }}
+                            {{ form_row(form.Medical_Regime) }}
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.Enfants_nom) }}
+                            {{ form_row(form.Medical_Traitement) }}
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.Enfants_date_de_naissance) }}
+                            {{ form_row(form.Medical_Allergie) }}
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.Enfants_information) }}
+                            {{ form_row(form.Medical_Handicap) }}
                         </div>
 
                         <div class="form-group">

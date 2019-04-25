@@ -13,6 +13,7 @@ use App\Entity\Parents;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 class RegistrationFormType extends AbstractType
@@ -69,6 +70,13 @@ class RegistrationFormType extends AbstractType
                 'first_options'  => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
             ))
+            ->add('checkbox', CheckboxType::class, [
+                'label'    => 'Jai lu et jaccepte les Conditions générales dutilisation',
+                'mapped' => false,
+                'constraints'=> new NotBlank([
+                    'message' => 'Merci de cocher cette case'
+                ])
+            ])
         ;
     }
 
