@@ -260,9 +260,16 @@ footer h5 {
 	height: 75vh;
 }
 
+.calendrier_table th {
+	padding: 10px;
+	border: 1px solid gray;
+	width: 14.29%;
+	height: 5%;
+}
+
 .calendrier_table td {
 	padding: 10px;
 	border: 1px solid gray;
 	width: 14.29%;
-	height: 20%;
+	height: 15%;
 }

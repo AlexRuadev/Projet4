@@ -9,7 +9,7 @@ use App\Entity\Disponibilite;
 
 class PlanningController extends AbstractController
 {
-    public $jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+    public $listejours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
     private $months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
@@ -26,14 +26,25 @@ class PlanningController extends AbstractController
         /*dump($request->query->get('month'));*/
         dump($month);
 
+
         $mois = $this->moisPlanning($month, date('Y'));
-        $jours = $this->jourDebut()->modify('last monday');
+        $jourDebut = $this->jourDebut()->modify('last monday');
+        $jours = [];
+
+        $nbsemaines = $this->nbSemaines();
+        for ($k = 0; $k < $nbsemaines; $k++){
+            foreach ($this->listejours as $i => $listejour){
+                $jours[$i][] = (clone $jourDebut)->modify("+" . ($i + $k * 7) . "days")->format('d');
+            }
+        }
+
+        var_dump($jours);
 
         return $this->render('planning/planning.html.twig', [
             'date' => $mois,
-            'nbsemaines' => $this->nbSemaines(),
-            'jours' => $jours->format('d'),
-            'jourssemaines' => $this->jours
+            'nbsemaines' => $nbsemaines,
+            'jours' => $jours,
+            'jourssemaines' => $this->listejours
         ]);
     }
 

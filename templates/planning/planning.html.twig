@@ -5,13 +5,19 @@
         <div class="container">
             <h2>{{ date }}</h2>
             <table class="calendrier_table">
+                <tr>
+                    {% for joursemaine in jourssemaines %}
+                        <th>
+                            {{ joursemaine }}
+                        </th>
+                    {% endfor %}
+                </tr>
                 {% for i in 1..nbsemaines %}
                 <tr>
-                    {% for joursemaines in jourssemaines %}
-                    <td>
-                        {{ joursemaines }} <br>
-                        {{ jours }}
-                    </td>
+                    {% for jour in jours %}
+                        <td>
+                            {{ jour.0 }}
+                        </td>
                     {% endfor %}
                 </tr>
                 {% endfor %}
