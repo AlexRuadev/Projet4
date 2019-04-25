@@ -23,12 +23,12 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="app_logout", methods={"GET"})
+     * @Route("/logout", name="logout", methods={"GET"})
      */
     public function logout()
     {
 //        throw new \Exception('Will be intercepted before getting here');
-        return $this->render('home');
+        return $this->render('accueil.html.twig');
     }
 
 }

@@ -31,7 +31,11 @@
             <div class="menu">
                 <ul>
                     <li><a href="{{ path('landing') }}">Accueil</a></li>
-{#                    <li><a href="#particulier">Particulier</a></li>#}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('parents') }}">Profil</a></li>
+                        <li><a href="{{ path('logout') }}">Deconnexion</a></li>
+                    {% endif %}
+                    
 {#                    <li><a href="#professionel">Professionnel</a></li>#}
                 </ul>
             </div>

@@ -9,16 +9,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParentsController extends AbstractController
 {
     /**
-     * @Route("/profil-parent/{id}", name="parents")
+     * @Route("parents/profil-parent", name="parents")
      */
-    public function index($id)
+    public function index()
     {
-        $parents =  $this->getDoctrine()
-            ->getRepository(Parents::class)
-            ->find($id);
+        $user = $this->getUser();
+
+        if(empty($user)){
+            $this->redirect('403');
+        }
+
         return $this->render('parents/profil_parent.html.twig', [
             'controller_name' => 'ParentsController',
-            'entreprise' => $parents,
+            'parent' => $user,
         ]);
     }
 }
