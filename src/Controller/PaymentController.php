@@ -26,7 +26,7 @@ class PaymentController extends AbstractController
 
         \Stripe\Charge::create([
             "currency" => "eur", // la monnaie
-            "amount" => 10500, // le montant en centimes
+            "amount" => 14200, // le montant en centimes
             "source" => "tok_amex", // obtained with Stripe.js
             "description" => "Paiement d'une réservation sur Kidsery", // description sur le paiement et contenu du mail recu a l'utilisateur
             "receipt_email" => "nfactoryjean@outlook.com", // recu du paiement au mail du client
