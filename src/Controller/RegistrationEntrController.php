@@ -29,6 +29,11 @@ class RegistrationEntrController extends AbstractController
      */
     public function registerentr(Request $request, UserPasswordEncoderInterface $passwordEncoder , \Swift_Mailer $mailer)
     {
+        $user = $this->getUser();
+
+        if(!empty($user)){
+            return $this->redirectToRoute('landing');
+        }
         // 1) build the form
         $user = new Entreprises();
         $form = $this->createForm(RegistrationEntrFormType::class, $user);

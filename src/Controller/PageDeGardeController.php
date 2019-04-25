@@ -13,6 +13,11 @@ class PageDeGardeController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
+
+        if(!empty($user)){
+            return $this->redirectToRoute('home');
+        }
         return $this->render('accueil.html.twig', [
             'controller_name' => 'HomeController',
         ]);

@@ -14,6 +14,11 @@ class SecurityEntrController extends AbstractController
      */
     public function loginentr(AuthenticationUtils $authenticationUtils): Response
     {
+        $user = $this->getUser();
+
+        if(!empty($user)){
+            return $this->redirectToRoute('landing');
+        }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
