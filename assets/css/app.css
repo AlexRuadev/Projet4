@@ -266,6 +266,7 @@ hr {
 footer {
 	width: 100%;
 	background: rgba(255, 131, 96,1);
+	margin-top: 300px;
 }
 
 footer a {
