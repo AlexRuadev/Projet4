@@ -90,34 +90,37 @@
 
 <script>
 // Create a Stripe client.
-var stripe = Stripe('pk_test_tDiugqSqs5gDTHKk0Db2HlHO00snQdHmhy');
+var stripe = Stripe('pk_test_w9Wm3ilblFzMrW4k7fkRQCqB00lwY55jMx');
 
 // Create an instance of Elements.
 var elements = stripe.elements();
 
-// Custom styling can be passed to options when creating an Element.
-// (Note that this demo uses a wider set of styles than the guide below.)
-var style = {
-  base: {
-    color: '#32325d',
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-    fontSmoothing: 'antialiased',
-    fontSize: '16px',
-    '::placeholder': {
-      color: '#aab7c4'
-    }
-  },
-  invalid: {
-    color: '#fa755a',
-    iconColor: '#fa755a'
-  }
-};
-
 // Create an instance of the card Element.
-var card = elements.create('card', {style: style});
+var card = elements.create('cardNumber', {
+  classes : {
+    base : "form-control",
+    invalid : "error"
+  }
+});
+
+var cvc = elements.create('cardCvc', {
+  classes : {
+    base : "form-control",
+    invalid : "error"
+  }
+});
+
+var exp = elements.create('cardExpiry', {
+  classes : {
+    base : "form-control",
+    invalid : "error"
+  }
+});
 
 // Add an instance of the card Element into the `card-element` <div>.
-card.mount('#card-element');
+card.mount('#card-number');
+cvc.mount('#card-cvc');
+exp.mount('#card-exp');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {
