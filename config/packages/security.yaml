@@ -10,7 +10,7 @@ security:
             entity: { class: App\Entity\Entreprises, property: entreprises_pseudo}
 
     firewalls:
-        parentt:
+        parents:
             anonymous: true
             provider: chain_provider
             guard:
