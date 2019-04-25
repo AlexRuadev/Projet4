@@ -47,7 +47,7 @@ class Entreprises implements UserInterface
     /**
      * @ORM\Column(type="array")
      */
-    protected $Entreprises_role = ["creche", "nourrice"];
+    protected $Entreprises_role = ["ROLE_ENTREPRISE"];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)

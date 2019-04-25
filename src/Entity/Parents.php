@@ -46,7 +46,7 @@ class Parents implements UserInterface
     /**
      * @ORM\Column(type="array")
      */
-    protected $Parents_role = ["Utilisateur"];
+    protected $Parents_role = ["ROLE_USER"];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
