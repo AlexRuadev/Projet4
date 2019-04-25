@@ -31,6 +31,16 @@ a:hover {
 /*********************************************
 //				LANDING PAGE
 *********************************************/
+.kidsery {
+background-image: url("../img/logokidsery.png");
+}
+
+
+.logo a img {
+	margin-top: -20px;
+	height: auto;
+	width: 80px;
+}
 
 .image1 {
 	background: url('../img/image1_accueil.jpg') center no-repeat;
