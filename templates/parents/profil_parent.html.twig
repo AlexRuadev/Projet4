@@ -2,7 +2,6 @@
 
 {% block body %}
 
-
     <div class="content">
         <div class="container">
             <div class="case case-parent">
@@ -16,16 +15,16 @@
                         <img class="image-profil" src={{ asset('build/images/image2_accueil.5c0b4f14.jpg') }} alt="avatar">
                     </div>
                     <div class="col-3 alignement-gauche">
-                        <p><span>Pseudo: </span>MartinMatin</p>
-                        <p><span>Mail: </span>Arthur@arthur.fr</p>
-                        <p><span>Prénom: </span>Arthur</p>
-                        <p><span>Nom: </span>Thomson</p>
+                        <p><span>Pseudo: </span>{{ parent.parentsPseudo }}</p>
+                        <p><span>Mail: </span>{{ parent.parentsMail }}</p>
+                        <p><span>Prénom: </span>{{ parent.parentsPrenom }}</p>
+                        <p><span>Nom: </span>{{ parent.parentsNom }}</p>
                     </div>
                     <div class="col-3 alignement-gauche">
-                        <p><span>Téléphone: </span>02******84</p>
-                        <p><span>Adresse: </span>36 mes couilles au bord de l'eau </p>
-                        <p><span>Code postal: </span>76000</p>
-                        <p><span>Ville: </span>Rouen</p>
+                        <p><span>Téléphone: </span>{{ parent.parentsTelephone }}</p>
+                        <p><span>Adresse: </span>{{ parent.parentsAdresse }}</p>
+                        <p><span>Code postal: </span>{{ parent.parentsCp }}</p>
+                        <p><span>Ville: </span>{{ parent.parentsVille }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +43,7 @@
                 </div>
                 <div class="row espacement-ligne">
                     <div class="col">
-                        <a href="profil-enfant" title="Modifier le profil de votre enfant">
+                        <a href="" title="Modifier le profil de votre enfant">
                             <i class="fas fa-baby fa-3x"></i>
                             <p>Juan-Carlos</p>
                         </a>

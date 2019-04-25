@@ -10,10 +10,15 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/parents/login", name="app_login")
+     * @Route("/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        $user = $this->getUser();
+
+        if(!empty($user)){
+            return $this->redirectToRoute('landing');
+        }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
@@ -23,12 +28,12 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="app_logout", methods={"GET"})
+     * @Route("/logout", name="logout", methods={"GET"})
      */
     public function logout()
     {
 //        throw new \Exception('Will be intercepted before getting here');
-        return $this->render('home');
+        return $this->render('accueil.html.twig');
     }
 
 }

@@ -238,6 +238,18 @@ hr {
 }
 
 /*********************************************
+//				MAPPING
+*********************************************/
+
+#mapid {
+	width: 100%;
+	height: 96%;
+	border: 2px #9D9898 solid ;
+	z-index: 2;
+
+}
+
+/*********************************************
 //				FOOTER
 *********************************************/
 
@@ -266,6 +278,10 @@ footer h5 {
 	margin: 4em auto;
 }
 
+#footer {
+
+}
+
 /*********************************************
 //				DIVERS
 *********************************************/
@@ -285,6 +301,20 @@ footer h5 {
 	border-radius: 15px;
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 2px 2px 5px rgba(255, 131, 96,0.7);
+	top: 50%;
+
+}
+
+.form-largeur-souscription {
+	width: 43%;
+	margin: 5% auto 5% auto;
+	padding: 40px;
+	border: 2px solid rgba(255, 131, 96,1);
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 2px 2px 5px rgba(255, 131, 96,0.7);
+	top: 50%;
+
 }
 
 .paiement-largeur {
@@ -340,3 +370,8 @@ footer h5 {
 .conditions-g {
 	font-size : 0.5em;
 }
+
+.bas-footer {
+	margin-bottom: 200px;
+}
+

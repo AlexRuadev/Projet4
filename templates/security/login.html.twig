@@ -17,7 +17,7 @@
             {% endif %}
 
             <div class="row">
-                <div class="col">
+                <div class="col bas-footer">
                     <div class="form-largeur">
                         <form method="post" >
 {#                        <div class="form-group" {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}>   </div>#}
@@ -49,8 +49,9 @@
                                 Me connecter
                             </button>
                         </div>
-                        <form method="post" >
-                            <a href="{{ path('landing') }}" class="conditions-g pull-right">Vous n'etes pas encore inscris?</a>
+
+                            <a href="{{ path('landing') }}" class="conditions-g pull-right">Vous n'êtes pas encore inscris?</a>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,10 +63,4 @@
 
 
 
-
-
-
-
-
-</form>
 {% endblock %}

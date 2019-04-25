@@ -51,6 +51,11 @@ class RegistrationController extends AbstractController
 
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $user = $this->getUser();
+
+        if(!empty($user)){
+            return $this->redirectToRoute('landing');
+        }
         // 1) build the form
         $user = new Parents();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -61,8 +66,9 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setParentsMdp($password);
+
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();

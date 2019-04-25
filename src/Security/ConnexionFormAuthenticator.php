@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
@@ -20,12 +21,14 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     private $parentsRepository;
     private $router;
     private $csrfTokenManager;
+    private $passwordEncoder;
 
-    public function __construct(ParentsRepository $parentsRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager)
+    public function __construct(ParentsRepository $parentsRepository, RouterInterface $router, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->parentsRepository = $parentsRepository;
         $this->router = $router;
         $this->csrfTokenManager = $csrfTokenManager;
+        $this->passwordEncoder = $passwordEncoder;
     }
     public function supports(Request $request)
     {
@@ -57,11 +60,7 @@ class ConnexionFormAuthenticator extends AbstractFormLoginAuthenticator
     }
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['Parents_mdp'];
-        if ($password == 'iliketurtles') {
-            return true;
-        }
-        return false;
+        return $this->passwordEncoder->isPasswordValid($user, $credentials['Parents_mdp']);
     }
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {

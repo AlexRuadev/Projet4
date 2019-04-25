@@ -46,7 +46,7 @@ class Parents implements UserInterface
     /**
      * @ORM\Column(type="array")
      */
-    protected $Parents_role = ["Utilisateur"];
+    protected $Parents_role = ["ROLE_USER"];
 
     /**
      * @ORM\Column(type="string", length=45, nullable=true)
@@ -108,13 +108,6 @@ class Parents implements UserInterface
      */
     protected $Parents_Avis;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
-     */
-    protected $plainPassword;
-
-
     public function __construct()
     {
         $this->Parents_enfants = new ArrayCollection();
@@ -140,16 +133,6 @@ class Parents implements UserInterface
         $this->Parents_pseudo = $Parents_pseudo;
 
         return $this;
-    }
-
-    public function getUsername()
-    {
-        return $this->Parents_pseudo;
-    }
-
-    public function setUsername($Parents_pseudo)
-    {
-        $this->Parents_pseudo = $Parents_pseudo;
     }
 
     public function getParentsMail(): ?string
@@ -184,16 +167,6 @@ class Parents implements UserInterface
         $this->Parents_mdp = $Parents_mdp;
 
         return $this;
-    }
-
-    public function getPassword()
-    {
-        return $this->Parents_mdp;
-    }
-
-    public function setPassword($Parents_mdp)
-    {
-        $this->Parents_mdp = $Parents_mdp;
     }
 
     public function getParentsToken(): ?string
@@ -333,15 +306,17 @@ class Parents implements UserInterface
         return $this;
     }
 
-    public function getPlainPassword()
+
+    public function getUsername()
     {
-        return $this->plainPassword;
+        return $this->Parents_pseudo;
     }
 
-    public function setPlainPassword($password)
+    public function getPassword()
     {
-        $this->plainPassword = $password;
+        return $this->Parents_mdp;
     }
+
 
     public function eraseCredentials()
     {
