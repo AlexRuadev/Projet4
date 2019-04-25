@@ -8,6 +8,7 @@ easy_admin:
         title: 'Entreprises'
         fields:
           - 'id'
+          - { property: 'entreprises_pseudo', type: 'string', label: 'Pseudo' }
           - { property: 'entreprises_mail', type: 'email', label: 'Email' }
           - { property: 'entreprises_nom', type: 'string', label: 'Nom' }
           - { property: 'entreprises_role', type: 'simple_array', label: 'Rôle' }

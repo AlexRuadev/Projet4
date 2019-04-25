@@ -10,7 +10,7 @@ security:
             entity: { class: App\Entity\Entreprises, property: entreprises_pseudo}
 
     firewalls:
-        parentt:
+        parent:
             anonymous: true
             provider: chain_provider
             guard:
@@ -50,8 +50,8 @@ security:
 #            logout:
 #                path: app_logoutentr
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+          - { path: ^/admin, roles: ROLE_ADMIN }
+          - { path: ^/profil-parent, roles: ROLE_USER }
     encoders:
         App\Entity\Parents: bcrypt
         App\Entity\Entreprises: bcrypt
