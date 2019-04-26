@@ -67,11 +67,11 @@ class RegistrationEntrController extends AbstractController
                         'adresse' => $user->getEntreprisesAdresse(),
                         'cp' => $user->getEntreprisesCp(),
                         'ville' => $user->getEntreprisesVille(),
-                        'telephone' => $user->getEntreprisesTelephone(),
+                        'téléphone' => $user->getEntreprisesTelephone(),
                         'siret' => $user->getEntreprisesSiret(),
                         'description' => $user->getEntreprisesDescription(),
                         'horaires' => $user->getEntreprisesHoraires(),
-                        'capacite' => $user->getEntreprisesCapacite(),
+                        'capacité' => $user->getEntreprisesCapacite(),
             ]),
                     'text/html'
                 )
