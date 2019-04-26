@@ -2,15 +2,6 @@
 
 {% set nomProjet = 'Kidsery' %}
 
-{% block elementlanding %}
-    <div class="title">
-        <h1>
-            {{ nomProjet }}
-        </h1>
-        <h2>Sous-titre</h2>
-    </div>
-{% endblock %}
-
 {% block body %}
     <div id="particulier"></div>
     <div class="content">
@@ -52,12 +43,7 @@
                     <div class="col-md-7">
                         <div class="about-content">
                             <h1  class="content-title">Vous êtes un professionnel ?</h1>
-                            <p class="content-text">Lorem ipsum dolor sit amet reprehenderit, enim eiusmod high life
-                                accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Haccusamus terry richardson ad
-                                squid. pwolf moon officia aute, non cupidatat skateboard. Wolf moon officia aute, non
-                                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt cusamus terry richardson
-                                ad squid.</p>
+                            <p class="content-text">{{ nomProjet }} vous offre une plus grande visibilité, mais surtout, vous permet de combler les annulations de dernière minute et donc de remplir les places disponibles le plus rapidement possible, sans effort.</p>
 
                             <div class="text-center">
                                 <a href="{{ path('app_registerentr') }}" class="btn bouton button">S'inscrire</a>
