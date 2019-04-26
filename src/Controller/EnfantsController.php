@@ -43,7 +43,7 @@ class EnfantsController extends AbstractController
      * @Route("/addenfant", name="enfants")
      */
 
-    public function addenfant(Request $request, Parents $parents)
+    public function addenfant(Request $request)
     {
         $enfant = new Enfants();
         $form = $this->createForm(AddEnfantsFormType::class, $enfant);
@@ -67,7 +67,7 @@ class EnfantsController extends AbstractController
             $datecreation = new \DateTime();
             $enfant->setEnfantsDateCreation($datecreation);
 
-            $enfant->setEnfantsParents($parents);
+//            $enfant->setEnfantsParents($parents);
 
 
             $entityManager = $this->getDoctrine()->getManager();

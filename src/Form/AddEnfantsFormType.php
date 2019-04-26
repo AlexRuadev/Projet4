@@ -39,13 +39,6 @@ class AddEnfantsFormType extends AbstractType
                     ])
                 ]
             ])
-            ->add('Enfants_information', TextType::class, [
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de renseigner des informations'
-                    ])
-                ]
-            ])
         ;
     }
 
