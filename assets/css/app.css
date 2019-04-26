@@ -35,6 +35,13 @@ a:hover {
 background-image: url("../img/logokidsery.png");
 }
 
+.gif1 {
+	background-image: url("../img/403.gif");
+}
+
+.gif2 {
+	background-image: url("../img/404.gif");
+}
 
 .logo a img {
 	margin-top: -20px;
