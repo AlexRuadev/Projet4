@@ -1,0 +1,21 @@
+easy_admin:
+  formats:
+    date: 'd/m/Y'
+    datetime: 'd/m/Y '
+  design:
+      brand_color: '#1ABC9C'
+      menu:
+        - label: 'Utilisateurs'
+          icon: 'users'
+          children:
+            - { entity: 'Parents', icon: 'user' }
+            - { entity: 'Entreprises', icon: 'user' }
+        - label: 'Enfants'
+          icon: 'child'
+          children:
+            - { entity: 'Enfants', icon: 'child' }
+            - { entity: 'Medical', icon: 'plus-square' }
+        - { entity: 'Bracelet', icon: 'feed' }
+        - { entity: 'Reservations', icon: 'bookmark'}
+        - { entity: 'Avis', icon: 'comments'}
+

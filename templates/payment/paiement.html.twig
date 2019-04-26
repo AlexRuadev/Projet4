@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                    <h2>Paiement de votre réservation du 26/04/2019</h2>
+                    </div>
+                </div>
+            </div>
+                    <div class="form-largeur">
+
+                    <form method="post" id="payment-form">
+
+                        <div class="form-group">
+                            <label for="card-name">Propriétaire de la carte</label>
+                            <input type="text" name="card-name" class="form-control" id="card-name" placeholder="Nom">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <div id="card-number">
+                                <!-- A Stripe Element will be inserted here. -->
+                            </div>
+                        </div>
+
+                        <div class="form group"> 
+                                    <label for="card-cvc">Cryptogramme</label>
+                                    <div id="card-cvc">
+                                        <!-- A Stripe Element will be inserted here. -->
+                                    </div>
+                        </div>
+                        <div class="form group"> 
+
+                                    <label for="card-exp">Date d'expiration</label>
+                                    <div id="card-exp">
+                                        <!-- A Stripe Element will be inserted here. -->
+                                    </div>
+                        </div>
+                            
+                        <!-- Used to display form errors. -->
+                        <div id="card-errors" role="alert"></div>
+                        <br>
+                        <div class="form-group">
+
+                               <button class="btn button bouton-form">
+                                  Payer 42€
+                                </button>
+
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}

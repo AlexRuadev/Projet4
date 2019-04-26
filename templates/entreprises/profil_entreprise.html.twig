@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="container">
+            <div class="case case-entreprise">
+                <div class="row">
+                    <div class="col">
+                        <h3>{{ entreprise.entreprisesNom }}</h3>
+                    </div>
+                </div>
+                <div class="row row-image-entreprise espacement-ligne-entreprise">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <img class="image-entreprise" src={{ asset('build/images/image2_accueil.5c0b4f14.jpg') }}>
+                    </div>
+                    <div class="col-2"></div>
+                    {#<div class="col desc-entreprise">
+                        <h3>Garderie de l'année</h3>
+                        <div class="alignement-gauche">
+                            <p>
+                                Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Aperiam aut cumque delectus dolor, ea eos, est exercitationem molestiae necessitatibus
+                                nostrum officiis quibusdam quo, repellat tempora voluptatum! Aliquid pariatur sapiente
+                                ullam?
+                            </p>
+                        </div>
+                    </div>#}
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <p>Il reste encore <span class="green">{{ entreprise.entreprisesCapacite }}</span> places chez ce professionel dans les 7 prochains jours</p>
+                        <a class="lienplanning" href="">Voir le calendrier des disponibilités</a>
+                    </div>
+                </div>
+                <div class="row espacement-ligne alignement-gauche">
+                    <div class="col">
+                        <div class="alignement-gauche">
+                            <p>
+                                Description: {{ entreprise.entreprisesDescription }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <h3>Informations:</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 espacement-ligne alignement-gauche">
+                        <p><span>Adresse postale: </span>{{ entreprise.entreprisesAdresse }} {{ entreprise.entreprisesCp }} {{ entreprise.entreprisesVille }}</p>
+                        <p><span>Horaires: </span>{{ entreprise.entreprisesHoraires }}</p>
+                        <p><span>Espace extérieur: </span>{{ entreprise.entreprisesEspaceExterieur }}</p>
+                        <p><span>Capacité d'accueil: </span>{{ entreprise.entreprisesCapacite }} enfants</p>
+                        <p><span>Effectif de l'entreprise: </span>{{ entreprise.entreprisesEffectifs }} employés</p>
+                        <p><span>Périodes de fermeture: </span>???</p>
+                        <p><span>Tarif: </span>{{ entreprise.entreprisesTarif }} /jour</p>
+                        <p><span>Numéro de siret: </span>{{ entreprise.entreprisesSiret }}</p>
+
+                        {#<p><span>Réseaux sociaux: </span>des liens avec les logos</p>#}
+                    </div>
+                    <div class="col-6 espacement-ligne">
+                        <div id="mapid"></div>
+                        <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

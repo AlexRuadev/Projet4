@@ -4,16 +4,26 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Entreprises;
 
 class ListingController extends AbstractController
 {
     /**
-     * @Route("/listing", name="listing")
+     * @Route("/home", name="home")
      */
     public function index()
     {
-        return $this->render('listing/index.html.twig', [
-            'controller_name' => 'ListingController',
+
+    	$entreprises =  $this->getDoctrine()
+		    ->getRepository(Entreprises::class);
+
+    	$listeEntreprises = $entreprises->findBy(
+			['Entreprises_status' => 1]
+	    );
+
+
+        return $this->render('listing/listing.html.twig', [
+            'entreprises' => $listeEntreprises,
         ]);
     }
 }

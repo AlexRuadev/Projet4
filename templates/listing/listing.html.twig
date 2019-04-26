@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="case case-search">
+        <div class="container">
+            <form action="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label>Région</label>
+                            <select class="form-control">
+                                <option>76 - Seine-Maritime</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Code postal</label>
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="col">
+                            <label>Trier par</label>
+                            <select class="form-control">
+                                <option>Meilleures notes</option>
+                                <option>Nombre de disponibilités</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <br>
+                            <button class="btn bouton search-bouton">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content">
+
+        <div class="container">
+
+            {% for i in entreprises %}
+            <a href="{{ path('entreprises', {'id': i.id}) }}">
+                <div class="row case">
+                    <div class="col-md-3">
+                        <div class="images">
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="title">{{ i.entreprisesNom }}</h3>
+                        <p>Code postal: {{ i.entreprisesCp }}</p>
+                        <p>Capacité d'accueil: {{ i.entreprisesCapacite }}</p>
+                        <p>Rôle (établissement, indépendant,...)</p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="row">
+                            <div class="col">
+                                <div class="dispo"></div>
+                            </div>
+                            <div class="col">
+                                <div class="note">{{ i.entreprisesNote }}/5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

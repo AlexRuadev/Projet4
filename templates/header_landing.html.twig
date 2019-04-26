@@ -1,0 +1,39 @@
+{% set nomProjet = 'Kidsery' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ nomProjet }}</title>
+    {% block stylesheets %}
+        <link href={{ asset('build/vendors~app.css') }} rel="stylesheet" type="text/css">
+        <link href={{ asset('build/app.css') }} rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+<div class="wrapper">
+    <header class="header_landing">
+        <nav>
+            <div class="menu-icon">
+                <i class="fa fa-bars fa-2x"></i>
+            </div>
+            <div class="logo"><a href="{{ path('landing') }}"><img src="{{ asset('build/images/logokidsery.38e3a536.png') }}" alt="logo kidsery"></a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{{ path('landing') }}">Accueil</a></li>
+                    <li><a href="#particulier">Particulier</a></li>
+                    <li><a href="#professionel">Professionnel</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="title">
+            <h1>{{ nomProjet }}</h1>
+            <h2>La meilleure des garderies!</h2>
+        </div>
+    </header>
+</div>

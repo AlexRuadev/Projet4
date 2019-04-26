@@ -1,0 +1,4 @@
+easy_admin:
+    site_name: 'Projet 4'
+    user:
+      display_name: true

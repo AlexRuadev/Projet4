@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="content">
+        <div class="d-flex flex-row align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <span class="display-1 d-block">Erreur 403</span>
+                        <div class="mb-4 lead">Vous n'avez pas les droits nécéssaire pour accéder à cette page</div>
+                        <img alt="gif de l'erreur 403" src={{ asset('build/images/403.gif') }}>
+                        <br>
+                        <a href="{{ path('landing') }}" class="btn btn-link">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="container">
+            <div class="case case-parent">
+                <div class="row">
+                    <div class="col">
+                        <h3>Mon profil:</h3>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col-md-4">
+                        <img class="image-profil" src={{ asset('build/images/image2_accueil.5c0b4f14.jpg') }} alt="avatar">
+                    </div>
+                    <div class="col-3 alignement-gauche">
+                        <p><span>Pseudo: </span>{{ parent.parentsPseudo }}</p>
+                        <p><span>Mail: </span>{{ parent.parentsMail }}</p>
+                        <p><span>Prénom: </span>{{ parent.parentsPrenom }}</p>
+                        <p><span>Nom: </span>{{ parent.parentsNom }}</p>
+                    </div>
+                    <div class="col-3 alignement-gauche">
+                        <p><span>Téléphone: </span>{{ parent.parentsTelephone }}</p>
+                        <p><span>Adresse: </span>{{ parent.parentsAdresse }}</p>
+                        <p><span>Code postal: </span>{{ parent.parentsCp }}</p>
+                        <p><span>Ville: </span>{{ parent.parentsVille }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col espacement-ligne">
+                        <div class="text-center">
+                            <a href="#" class="btn bouton button">Modifier mon profil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case case-enfant">
+                <div class="row">
+                    <div class="col">
+                        <h3>Vos enfants:</h3>
+                    </div>
+                </div>
+                <div class="row espacement-ligne">
+                    <div class="col">
+                        <a href="" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Juan-Carlos</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="profil-enfant" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Josélito</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="profil-enfant" title="Modifier le profil de votre enfant">
+                            <i class="fas fa-baby fa-3x"></i>
+                            <p>Marcelino</p>
+                        </a>
+
+
+
+
+                        {#<div class="modal " id="demo-modal">#}
+                            {#<div class="modal-dialog">#}
+
+                                {#<div class="modal-content">#}
+                                    {#<div class="modal-header">#}
+                                        {#<h2 class="modal-title">Carlito</h2>#}
+                                        {#<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>#}
+                                    {#</div>#}
+                                    {#<div class="modal-body">#}
+                                        {#<p>Voici mon modal</p>#}
+                                    {#</div>#}
+                                    {#<div class="modal-footer">#}
+                                        {#<button type="button" class="btn btn-secondary" data-dismiss="modal">Confirm</button>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demo-modal">Details</button>#}
+
+                        {#-----------------------------#}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

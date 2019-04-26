@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <aside id="modal" class="modalregister" aria-hidden="true" role="note" aria-labelledby="titlemodal" style="display: none;">
+        <div class="modal-wrapper modal-js-stop">
+            <i class="modal-js-close fa fa-times"></i>
+            <h1 id="titlemodal">Conditions d'utilisation du site</h1>
+                   <p>     Il est convenu d’attribuer aux mots commençant par une majuscule, qu’ils soient au pluriel ou au singulier, la définition suivante :
+            - Adresse IP : Nombre qui est automatiquement assigné à l’ordinateur de l’internaute par son fournisseur d'accès Internet
+            lorsqu’il navigue sur internet et qui permet de l’identifier.</p>
+
+            <p> - Cookie (Témoin de connexion) : Petit fichier stocké après acceptation de l’internaute sur le disque dur de son ordinateur.</p>
+            Ce fichier permet à un site web d’enregistrer des informations relatives à la navigation de l’internaute sur les pages de ce site
+            et de faciliter l’utilisation ultérieure du site web par le même internaute.</p>
+
+            <p> - Site : Tous les sites internet appartenant ou exploités par le groupe SFR. Il s’agit notamment du site kidsery.fr.</p>
+
+            <p> - Service : Ensemble des services proposés sur le Site à tout internaute qu’il soit ou non abonné à une quelconque offre Kidsery.</p>
+            Accès au Site :</p>
+
+            <p> L'accès au Site est réservé à un usage strictement personnel.</p>
+            <p>  Kidsery se réserve le droit de suspendre, d'interrompre ou de limiter sans avis préalable l'accès à tout ou partie du site.
+            Les conditions d’utilisation du Site ainsi que les mentions légales sont susceptibles d'être modifiées à tout moment et sans préavis par Kidsery.</p>
+            <h2>Utilisation du site</h2>
+
+            <p> En utilisant le site, l’internaute s’engage à prendre connaissance des mentions légales, respecter les présentes conditions d’utilisation du Site et faire un usage strictement personnel du site.</p>
+
+            <p> Sous réserve des dispositions spécifiques applicables aux données personnelles, toutes les informations transmises par l’internaute sur Internet, notamment via le Site, seront considérées comme non confidentielles. L’internaute autorise SFR ou l’une quelconque de ses filiales à utiliser les informations qu’il aura ainsi transmises.</p>
+
+            <p> L’internaute peut personnaliser sa page d'accueil à l'aide de contenus extérieurs au Site, en enregistrant ses paramètres de préférences dans un Cookie. Cette personnalisation doit respecter les dispositions visées dans les présentes. Il pourra également supprimer le Cookie dans lequel ses préférences sont enregistrées selon la procédure détaillée à l’article «Cookies» des présentes.</p>
+
+            <p> Lorsque le Site permet à l’internaute d’envoyer et/ou de publier des contenus (textes, photographies, vidéos, etc.) de quelque nature que ce soit, l’internaute s’engage à ce que ces contenus respectent la législation applicable et ne portent ni atteinte aux droits des tiers, ni à l’ordre public et aux bonnes mœurs tels que définis par la législation française.</p>
+
+            <p>  En particulier, ces contenus ne doivent pas présenter de caractère pornographique ou pédophile, porter à la sécurité ou à l’intégrité d’un Etat ou d’un territoire, quel qu’il soit, inciter à la haine, à la violence, au suicide, au racisme, à l’antisémitisme, à la xénophobie, à l’homophobie, faire l’apologie des crimes de guerre ou des crimes contre l’humanité.</p>
+
+            <p>  La souscription et l’utilisation des Services font l’objet de conditions générales et de conditions particulières de vente et/ou d’utilisation spécifiques.</p>
+
+            <h2> Lien vers d'autres sites </h2>
+
+            <p> Il peut être proposé des liens depuis les Sites vers des sites tiers. Ces sites sont indépendants, SFR n'édite pas et ne contrôle pas ces sites. Les liens vers tous sites ne constituent, en aucun cas, une approbation ou un partenariat entre SFR et ces sites. Dès lors, Kidsery ne saurait être responsable de leurs contenus, leurs produits, leurs publicités ou tous éléments ou services présentés sur ces sites. Par ailleurs, ces sites sont soumis à leurs propres conditions d'utilisation. </p>
+
+            <h2> Données personnelles </h2>
+
+                    <p> Conformément aux lois et règlementations françaises et européennes en vigueur, SFR collecte et traite des données personnelles concernant les internautes dans le cadre de leur navigation sur notre Site (voir notre politique de gestion des cookies) et/ou de leur souscription à ses offres et services (voir conditions générales d’abonnement ou d’utilisation afférentes). </p>
+
+                    <p>  Les données personnelles sont traitées par les sociétés du Groupe ALTICE et leurs prestataires. Elles sont susceptibles de faire l’objet d’un transfert hors UE et sont conservées pour la durée de la fourniture des services et/ou de la finalité des traitements spécifiques. Pour exercer ses droits, l’internaute peut adresser un courrier mentionnant ses nom, prénom, adresse avec une copie de sa pièce d’identité à : Service client Kidsery - données personnelles - TSA 10101 - 95 125 Paris CEDEX 20 </p>
+
+                    <p>  Kidsery peut utiliser l’adresse IP de l’internaute si elle estime nécessaire de faire respecter ses conditions d’utilisation ou de protéger ses services, ses clients ou encore sur demande des autorités judiciaires. </p>
+
+        </div>
+    </aside>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire d'inscription</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur">
+                        <div class="form-group">{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}</div>
+
+{#                    pour verifier le tableau#}
+{#                    {{ dump(form.plainPassword.first.vars) }}#}
+
+                    {% set class= '' %}
+                    {% if not form.Parents_pseudo.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group">
+                            <label for="{{ form.Parents_pseudo.vars.id }}">Pseudo</label>
+                            <input type="text" class="form-control {{ class }}" id="{{ form.Parents_pseudo.vars.id }}" name="{{ form.Parents_pseudo.vars.full_name }}" value="{{ form.Parents_pseudo.vars.value }}">
+                            {{  form_errors(form.Parents_pseudo) }}
+{#                            sert a passer le submitted en true.#}
+                            {% do form.Parents_pseudo.setRendered %}
+                        </div>
+
+                    {% set class= '' %}
+                    {% if not form.Parents_mail.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group">
+                            <label for="{{ form.Parents_mail.vars.id }}">Mail</label>
+                            <input type="email" class="form-control {{ class }}"  id="{{  form.Parents_mail.vars.id }}" name="{{ form.Parents_mail.vars.full_name }}" value="{{ form.Parents_mail.vars.value }}">
+                            {{  form_errors(form.Parents_mail) }}
+                            {% do form.Parents_mail.setRendered %}
+                        </div>
+
+                    {% set class= '' %}
+                    {% if not form.Parents_mdp.first.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                        <div class="form-group ">
+                            <label for="{{  form.Parents_mdp.first.vars.id }}">Mot de passe</label>
+                            <input type="password" class="form-control {{ class }}" id="{{  form.Parents_mdp.first.vars.id }}" name="{{  form.Parents_mdp.first.vars.full_name }}" value="{{ form.Parents_mdp.first.vars.value }}" >
+                            {{  form_errors(form.Parents_mdp.first) }}
+                            {% do form.Parents_mdp.first.setRendered %}
+                           </div>
+
+                    {% set class= '' %}
+                    {% if not form.Parents_mdp.second.vars.valid %}
+                        {% set class = "is-invalid" %}
+                    {% endif %}
+                    <div class="form-group ">
+                        <label for="{{  form.Parents_mdp.second.vars.id }}">Mot de passe</label>
+                        <input type="password" class="form-control {{ class }}" id="{{  form.Parents_mdp.second.vars.id }}" name="{{  form.Parents_mdp.second.vars.full_name }}" value="{{ form.Parents_mdp.second.vars.value }}" >
+                        {{  form_errors(form.Parents_mdp.second) }}
+                        {% do form.Parents_mdp.second.setRendered %}
+                    </div>
+
+                        {{ form_widget(form.checkbox) }}
+                        {{ form_errors(form.checkbox) }}
+                        <p class="conditions-g">J'ai lu et j'accepte les <a href="#modal" class="modal-js">Conditions générales d'utilisation</a></p>
+
+                        <button type="submit" class="btn button bouton-form">Je m'inscris</button>
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

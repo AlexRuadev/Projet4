@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}SucesMonBonbon{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-            <link rel="stylesheet" href="{{ asset('assets/css/landingpage.css') }}">
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% include('header.html.twig') %}
+
+{% block body %} {% endblock %}
+
+{% include('footer.html.twig') %}

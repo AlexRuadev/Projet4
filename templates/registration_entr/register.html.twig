@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="titre-form-largeur">
+                        <h2>Formulaire de souscription</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-largeur-souscription">
+                        <div class="form-group">
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_pseudo) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_mail) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.EntreprisesMdp.first) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.EntreprisesMdp.second) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_nom) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_effectifs) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_adresse) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_cp) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_ville) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_telephone) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_siret) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_description) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_horaires) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_row(form.Entreprises_capacite) }}
+                        </div>
+                        {{ form_widget(form.checkbox) }}
+                        {{ form_errors(form.checkbox) }}<p class="conditions-g">J'ai lu et j'accepte les <a href="" class="modal-js">Conditions générales d'utilisation</a></p>
+                        <button class="btn button bouton-form" type="submit">S'inscrire!</button>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
